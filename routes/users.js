@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
     }
   const hash = await bcrypt.hash(req.body.password, 10)
   const newUser = await models.User.create({
-    userName: req.body.username,
+    username: req.body.username,
     password: hash,
     email: req.body.email
   })
@@ -44,7 +44,7 @@ router.post('/login', async (req, res) => {
     }
     const user = await models.User.findOne({
       where: {
-        userName: req.body.username
+        username: req.body.username
       },
     })
     if (!user) {
@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 
     delete user.password
 
-  res.json(user.userName);
+  res.json(user.username);
 })
 router.get('/logout', (req, res) => {
   req.session.user = null
