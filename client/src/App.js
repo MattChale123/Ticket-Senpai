@@ -1,14 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
-import NavBar from './components/NavBar';
+import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Switch from 'react-bootstrap/esm/Switch';
+import NavBar from './components/NavBar';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <NavBar />
+        <Route path="/">
+          <NavBar />
+        </Route>
       </Switch>
     </div>
   );
