@@ -1,0 +1,6 @@
+/* centered search bar...add a better fix than padding-right later... */
+.search-form {
+    /* display: flex; */
+    align-items: center;
+    padding-right: 110px;
+}
