@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Col, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import './NavBar.css';
+import './Navigation.css';
 
-export default function NavBar() {
+export default function Navigation() {
     return (
         <>
         <Navbar bg="primary" variant="dark">
