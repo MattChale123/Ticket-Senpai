@@ -1,8 +1,23 @@
 import React from 'react';
 import { Button, Col, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setUser } from '../redux/actions';
 import './Navigation.css';
 
-export default function Navigation() {
+const Navigation = () => {
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch()
+    const logout = () => {
+        fetch('/api/v1/users/logout')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    dispatch(setUser(null))
+                }
+            })
+    }
+
     return (
         <>
         <Navbar bg="primary" variant="dark">
@@ -20,11 +35,20 @@ export default function Navigation() {
                 <Button variant="outline-light">Search</Button>
                 </Form>
             </Col>
-            <Col className="text-right">
-                <Button>Logout</Button>
-                <Button>Username</Button>
-            </Col>
+            {user ? (
+                <Col className="text-right">
+                    <Button color='inherit' onClick={logout}>Logout</Button>
+                </Col>
+            ) : (
+                <div>
+                    <Button color='inherit' as={Link} to='/login'>Login</Button>
+                </div>
+            )
+            
+            }
         </Navbar>
         </>
     )
 }
+
+export default Navigation
