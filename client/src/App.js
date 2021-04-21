@@ -1,7 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Switch from 'react-bootstrap/esm/Switch';
 import { Route, Switch } from 'react-router';
 import Register from './pages/Register';
 import Login from './pages/Login';
