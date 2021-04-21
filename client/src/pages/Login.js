@@ -44,7 +44,9 @@ export default function Login() {
         <div>
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} value={form.username} name='username'></input>
+                <input placeholder="username" onChange={handleChange} value={form.username} name='username'></input><br />
+                <input type='password' placeholder="password" onChange={handleChange} value={form.password} name='password'></input><br />
+                <button type="submit">Login</button>
             </form>
         </div>
     )
