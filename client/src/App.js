@@ -1,17 +1,18 @@
 import './App.css';
-import NavBar from './components/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Home from './pages/Home';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <Switch>
-        <NavBar />
         <Route path='/' exact>
-            <NavBar />
+          <Home />
         </Route>
         <Route path="/register">
           <Register />
