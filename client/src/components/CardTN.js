@@ -1,19 +1,13 @@
 import React from 'react'
-import {Col, Jumbotron, Row} from 'react-bootstrap'
+import { Col } from 'react-bootstrap'
 export default function CardTN(props) {
     return (
-        <div>
-            <Jumbotron>
-                <Row>
-                    <Col><img src="" alt=""></img> </Col>
-                    <Col> <img src="" alt=""></img> </Col>
-                </Row>
-                <Row>
-                    <Col> <img src="" alt=""></img> </Col>
-                    <Col> <img src="" alt=""></img> </Col>
-                </Row>
-            </Jumbotron>
-            
-        </div>
+        <>
+            {
+                props.events.map((event) => {
+                    return <Col sm={6}><img src={event.images[2].url} className="home_img " alt=" "></img></Col>
+                })
+            }
+        </>
     )
 }
