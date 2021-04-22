@@ -7,7 +7,7 @@ export default function SeatGeakTest() {
     const [seatGeekData, setSeatGeekData] = useState([])
 
     const fetchSeatGeakCity = () => {
-        const URL = `https://api.seatgeek.com/2/events?per_page=25&page=1&venue.city=${searchCity}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
+        const URL = `https://api.seatgeek.com/2/events?per_page=25&page=1&venue.city=${searchCity}&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
         fetch(URL)
             .then((res) => res.json())
             .then((data) => {
