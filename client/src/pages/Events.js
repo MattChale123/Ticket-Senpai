@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import TicketMasterCard from '../components/TicketMasterCard'
+import useStubHub from '../hooks/useStubHub'
 
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
+    const [stubHubInfo, setStubHubInfo] = useState([])
+    const stubHub = useStubHub()
 
     useEffect(() => {
         fetchTicketMaster()
+        stubHub.searchMusicByCity('atlanta')
+        .then(data => {
+            // console.log(data)
+            setStubHubInfo(data)
+            console.log(data)
+        })
+        stubHub.searchPerformers('weezer')
+        .then(data => {
+            console.log(data)
+        })
     }, [])
 
     const fetchTicketMaster = async () => {
@@ -17,6 +30,7 @@ export default function Events() {
             })
         setTicketMaster(response)
     }
+
     return (
         <Container>
             <h1>Music Events in Atlanta</h1>
