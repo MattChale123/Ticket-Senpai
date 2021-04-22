@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Navigation from './components/Navigation';
+import SeatGeakTest from './pages/SeatGeakTest';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/seatgeektest">
+          <SeatGeakTest />
         </Route>
       </Switch>
     </div>

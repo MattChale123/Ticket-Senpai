@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import CardTN from '../components/CardTN'
 import { Link } from 'react-router-dom'
+import SeatGeek from '../components/SeatGeek'
 
 export default function Home() {
     const [events, setEvents] = useState({
