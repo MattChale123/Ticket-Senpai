@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Navigation from './components/Navigation';
 import SeatGeakTest from './pages/SeatGeakTest';
+import Profile from './pages/Profile';
+import Events from './pages/Events';
 
 function App() {
   return (
@@ -23,6 +25,12 @@ function App() {
         </Route>
         <Route path="/seatgeektest">
           <SeatGeakTest />
+        </Route>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+        <Route path = "/events">
+          <Events/>
         </Route>
       </Switch>
     </div>
