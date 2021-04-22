@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Navigation from './components/Navigation';
+import SeatGeakTest from './pages/SeatGeakTest';
 import Profile from './pages/Profile';
 import Events from './pages/Events';
 
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/seatgeektest">
+          <SeatGeakTest />
         </Route>
         <Route path="/profile">
           <Profile />
