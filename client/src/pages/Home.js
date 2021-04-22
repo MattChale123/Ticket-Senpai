@@ -26,7 +26,6 @@ export default function Home() {
             return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&classificationId=${url}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
                 .then(res => res.json())
                 .then(data => {
-                    // setEvents(data._embedded.events.splice(0, 4))
                     return data._embedded.events.splice(0, 4)
                 })
         })
@@ -40,7 +39,6 @@ export default function Home() {
                 classical: results[3]
             })
         })
-        // console.log(type)
     }
 
     return (
@@ -55,7 +53,7 @@ export default function Home() {
                     <Jumbotron>
                         <Row>
                             <Col sm={6}>
-                                <Link>
+                                <Link to= "/events" >
                                     <h2>Music</h2>
                                     <Row className="home_row">
                                         <CardTN events={events.music} />
