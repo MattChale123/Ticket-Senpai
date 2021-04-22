@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
+import StubHubLogin from './pages/StubHubLogin';
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
-        <Route path="/login">
+        <Route path="/login" exact>
           <Login />
+        </Route>
+        <Route path="/login/stubhub">
+          <StubHubLogin />
         </Route>
         <Route path="/profile">
           <Profile />

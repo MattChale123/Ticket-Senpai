@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import CardTN from '../components/CardTN'
 import { Link } from 'react-router-dom'
+import useStubHub from '../hooks/useStubHub'
 
 export default function Home() {
     const [events, setEvents] = useState({
@@ -11,8 +12,14 @@ export default function Home() {
         classical: []
     })
 
+    const stubHub = useStubHub()
+
     useEffect(() => {
         fetchTM()
+        stubHub.searchMusicByCity('tampa')
+        .then(data => {
+            console.log(data)
+        })
     }, [])
 
     const fetchTM = () => {

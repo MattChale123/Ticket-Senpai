@@ -6,3 +6,12 @@ export function setUser(data) {
         data,
     };
 }
+
+export const SET_STUBHUB = 'SET_STUBHUB';
+
+export function setStubHub(data) {
+    return {
+        type: SET_STUBHUB,
+        data,
+    };
+}

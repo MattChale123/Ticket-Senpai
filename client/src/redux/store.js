@@ -1,10 +1,12 @@
 import { combineReducers, createStore } from "redux";
-import { userReducer } from "./reducers";
+import { stubHubReducer, userReducer } from "./reducers";
 
 
 const rootReducer = combineReducers({
     user: userReducer,
+    stubHub: stubHubReducer
 })
+
 
 const store = createStore(
     rootReducer,
