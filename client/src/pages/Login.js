@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../redux/actions";
 
 export default function Login() {
+    const [ error, setError ] = useState('')
     const [form, setForm] = useState({
         username: '',
         password: '',
@@ -26,7 +27,7 @@ export default function Login() {
           .then((data) => {
             console.log(data);
             if (data.error) {
-              alert(data.error);
+              setError(data.error)
             } else {
               dispatch(setUser(data));
               history.push('/');
@@ -39,15 +40,19 @@ export default function Login() {
           [e.target.name]: e.target.value,
         });
       };
-    
+      const errorStyling = {
+        color: "red",
+        fontWeight: "bold"
+      }
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <input placeholder="username" onChange={handleChange} value={form.username} name='username'></input><br />
                 <input type='password' placeholder="password" onChange={handleChange} value={form.password} name='password'></input><br />
-                <button type="submit">Login</button>
-            </form>
+                <button  type="submit">Login</button>
+                {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
+              </form>
         </div>
     )
 }
