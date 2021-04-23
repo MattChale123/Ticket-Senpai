@@ -2,14 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import SeatGeekCard from '../components/SeatGeekCard'
 import TicketMasterCard from '../components/TicketMasterCard'
+import useStubHub from '../hooks/useStubHub'
 
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
-    const [seatGeek, setSeatGeek] = useState([])
+
+    const [stubHubInfo, setStubHubInfo] = useState([])
+    const stubHub = useStubHub()
 
     useEffect(() => {
         fetchTicketMaster()
-        fetchSeatGeak()
+        stubHub.searchMusicByCity('atlanta')
+        .then(data => {
+            // console.log(data)
+            setStubHubInfo(data)
+            console.log(data)
+        })
+        stubHub.searchPerformers('weezer')
+        .then(data => {
+            console.log(data)
+        })
+
     }, [])
 
     const fetchTicketMaster = async () => {
@@ -20,6 +33,7 @@ export default function Events() {
             })
         setTicketMaster(response)
     }
+
 
     const fetchSeatGeak = () => {
         const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=atlanta&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
@@ -33,6 +47,7 @@ export default function Events() {
                 }
             });
     }
+
 
 
 

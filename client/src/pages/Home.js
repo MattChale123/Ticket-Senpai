@@ -18,7 +18,7 @@ export default function Home() {
         fetchTM()
         stubHub.searchMusicByCity('tampa')
         .then(data => {
-            console.log(data)
+            // console.log(data)
         })
     }, [])
 

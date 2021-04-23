@@ -32,8 +32,8 @@ class StubHubAPI {
     searchEvents(queries) {
         return this.sendRequest('/sellers/search/events/v3', queries)
     }
-    searchPerformers(queries) {
-        return this.sendRequest('/partners/search/performers/v3/', queries)
+    searchPerformers(name) {
+        return this.sendRequest('/partners/search/performers/v3', {id: '450948'})
     }
     searchMusicByCity(city){
         return this.sendRequest('/sellers/search/events/v3', {categoryName: 'concert', city, sort: 'popularity desc', parking: false})
