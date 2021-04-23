@@ -12,7 +12,7 @@ export default function SeatGeekCard(props) {
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <hr></hr>
-                    <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" without rel="noreferrer">
+                    <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" rel="noreferrer">
                         <span> @ {venue.name_v2}</span>
                     </a>
                     <Card.Text>
@@ -25,9 +25,9 @@ export default function SeatGeekCard(props) {
                             </span> :
                             <div >
                                 <Row>
-                                    <Col for="low">Low</Col>
-                                    <Col for="low">Average</Col>
-                                    <Col for="low">High</Col>
+                                    <Col>Low</Col>
+                                    <Col>Average</Col>
+                                    <Col>High</Col>
                                 </Row>
                                 <Row>
                                     <Col>
@@ -44,7 +44,6 @@ export default function SeatGeekCard(props) {
                     }
                 </Card.Body>
             </Card>
-
         </div>
     )
 }

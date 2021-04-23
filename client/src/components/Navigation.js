@@ -3,6 +3,7 @@ import { Button, Col, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setUser } from '../redux/actions';
+import SearchBar from './SearchBar'
 import './Navigation.css';
 
 const Navigation = () => {
@@ -30,10 +31,7 @@ const Navigation = () => {
                 </Nav>
             </Col>
             <Col>
-                <Form inline className="search-form">
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-light">Search</Button>
-                </Form>
+                <SearchBar />
             </Col>
             {user ? (
                 <Col className="text-right">
