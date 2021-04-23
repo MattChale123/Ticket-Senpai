@@ -6,13 +6,13 @@ export default function SeatGeekCard(props) {
     const noTicketStr = "No tickets currently available from this Vendor"
 
     return (
-        <div>
+        <div className="mt-3">
             <Card style={{ width: '20rem' }}>
                 <a href={url}><Card.Img variant="top" src={`${performers[0].image}`} /></a>
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <hr></hr>
-                    <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" without rel="noreferrer">
+                    <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" rel="noreferrer">
                         <span> @ {venue.name_v2}</span>
                     </a>
                     <Card.Text>
@@ -25,9 +25,9 @@ export default function SeatGeekCard(props) {
                             </span> :
                             <div >
                                 <Row>
-                                    <Col for="low">Low</Col>
-                                    <Col for="low">Average</Col>
-                                    <Col for="low">High</Col>
+                                    <Col >Low</Col>
+                                    <Col >Average</Col>
+                                    <Col >High</Col>
                                 </Row>
                                 <Row>
                                     <Col>
