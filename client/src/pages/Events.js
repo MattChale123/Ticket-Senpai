@@ -6,12 +6,13 @@ import useStubHub from '../hooks/useStubHub'
 
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
-
+    const [ seatGeek, setSeatGeek] = useState([])
     const [stubHubInfo, setStubHubInfo] = useState([])
     const stubHub = useStubHub()
 
     useEffect(() => {
         fetchTicketMaster()
+        fetchSeatGeak()
         stubHub.searchMusicByCity('atlanta')
         .then(data => {
             // console.log(data)

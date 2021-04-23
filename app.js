@@ -5,7 +5,6 @@ var logger = require('morgan');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const models = require('./models')
-const cors = require('cors');
 require('dotenv').config();
 
 var indexRouter = require('./routes/index');
@@ -30,7 +29,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
