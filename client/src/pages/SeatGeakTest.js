@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Form, FormControl, InputGroup, Button, Card } from 'react-bootstrap';
-import SeatGeek from '../components/SeatGeek';
+import SeatGeekCard from '../components/SeatGeekCard';
 
 export default function SeatGeakTest() {
     const [searchCity, setSearchCity] = useState('');
@@ -56,7 +56,7 @@ export default function SeatGeakTest() {
                 console.log(sGD)
                 return (
                     <div key={index}>
-                        <SeatGeek sGD={sGD} />
+                        <SeatGeekCard sGD={sGD} />
                     </div>
 
                 )

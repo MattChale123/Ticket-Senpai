@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
+import SeatGeekCard from '../components/SeatGeekCard'
 import TicketMasterCard from '../components/TicketMasterCard'
 import useStubHub from '../hooks/useStubHub'
 
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
+
     const [stubHubInfo, setStubHubInfo] = useState([])
     const stubHub = useStubHub()
 
@@ -20,6 +22,7 @@ export default function Events() {
         .then(data => {
             console.log(data)
         })
+
     }, [])
 
     const fetchTicketMaster = async () => {
@@ -30,6 +33,24 @@ export default function Events() {
             })
         setTicketMaster(response)
     }
+
+
+    const fetchSeatGeak = () => {
+        const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=atlanta&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
+        fetch(URL)
+            .then((res) => res.json())
+            .then((data) => {
+                setSeatGeek(data.events)
+                console.log(data)
+                if (data.Error) {
+                    alert(data.Error);
+                }
+            });
+    }
+
+
+
+
 
     return (
         <Container>
@@ -47,8 +68,11 @@ export default function Events() {
                     }
                 </Col>
                 <Col>
-                    <Jumbotron>
-                    </Jumbotron>
+                {
+                        seatGeek.map(event => {
+                            return <SeatGeekCard event={event} />
+                        })
+                }
                 </Col>
                 <Col>
                     <Jumbotron>
