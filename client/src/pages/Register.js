@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import { Button, Col, Form, FormControl, InputGroup } from 'react-bootstrap'
 
 export default function Register() {
+    const [ error, setError ] = useState('')
     const [form, setForm ] = useState({
         username: '',
         password: '',
@@ -26,9 +27,8 @@ export default function Register() {
         .then(res => res.json())
         .then(data => {
             if (data.error) {
-                alert(data.error)
+                setError(data.error)
             } else {
-                alert("Thank you for registering")
                 history.push('/login')
             }
         })
@@ -39,10 +39,14 @@ export default function Register() {
             [e.target.name]: e.target.value
         })
     }
-
+    const errorStyling = {
+        color: "red",
+        fontWeight: "bold"
+      }
+      
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}  style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginTop: '10px', marginBottom: '10px' }}>
                 <Form.Group>
                     <Form.Row className="align-items-center">
                         <Col xs="auto">
@@ -72,6 +76,7 @@ export default function Register() {
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
+                {(error === 'Username already in use. Pick another') && <p style={errorStyling}>{error}</p>}
             </Form>
         </div>
     )

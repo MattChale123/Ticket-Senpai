@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
     }
   })
     if (user) {
-      return res.json(400).json({
+      return res.status(400).json({
         error: 'Username already in use. Pick another'
       })
     }
