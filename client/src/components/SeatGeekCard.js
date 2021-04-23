@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 
-export default function SeatGeek(props) {
-    const { url, venue, performers, stats, title } = props.sGD;
+export default function SeatGeekCard(props) {
+    const { url, venue, performers, stats, title } = props.event;
     const noTicketStr = "No tickets currently available from this Vendor"
 
     return (
