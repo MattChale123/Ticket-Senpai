@@ -8,6 +8,7 @@ import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
+import SearchResults from './pages/SearchResults';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path = "/events/:type">
           <Events/>
+        </Route>
+        <Route path = "/search/:num/:param">
+          <SearchResults />
         </Route>
       </Switch>
     </div>

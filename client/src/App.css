@@ -53,6 +53,11 @@
 }
 
 
+/* Search Bar  */
+.searchBar {
+  display: flex;
+  flex-direction: row;
+}
 
 
 /* Horizontal Menu for Search Results */
