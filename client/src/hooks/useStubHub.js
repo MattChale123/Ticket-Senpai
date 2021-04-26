@@ -30,8 +30,8 @@ class StubHubAPI {
         })
         .then(res => res.json())
     }
-    searchEvents() {
-        return this.sendRequest('/sellers/search/events/v3', {rows:'4', parking: false} )
+    searchEvents(city,q) {
+        return this.sendRequest('/sellers/search/events/v3', {city,q,rows:'4', parking: false} )
     }
     searchPerformers(name) {
         return this.sendRequest('/partners/search/performers/v3', {id: '450948'})

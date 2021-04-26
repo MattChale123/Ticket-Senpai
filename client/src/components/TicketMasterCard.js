@@ -1,11 +1,10 @@
 import React from 'react'
-import { Button, Card, Col, Jumbotron, Row } from 'react-bootstrap'
+import { Button, Card, Col, Row } from 'react-bootstrap'
 
 export default function TicketMasterCard(props) {
 
     return (
         <div className="mt-3">
-
             {
                 !props.event?.id ? (
                     <Card style={{ width: '20rem' }}>
@@ -33,6 +32,7 @@ export default function TicketMasterCard(props) {
                                 <a href={`https://google.com/maps/search/${props.event._embedded.venues[0].name} ${props.event._embedded.venues[0].city.name}`} target="_blank" rel="noreferrer">
                                     <span> @ {props.event._embedded.venues[0].name}</span>
                                 </a>
+                                    <div>{props.event.dates.start.localDate}</div>
                                 <Card.Text>
                                     Price of Tickets:
                                 </Card.Text>

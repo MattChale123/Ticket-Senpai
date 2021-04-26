@@ -9,16 +9,12 @@ import useStubHub from '../hooks/useStubHub'
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
     const [seatGeek, setSeatGeek] = useState([])
-    const {type} = useParams()
+    const { type } = useParams()
     const [stubHubInfo, setStubHubInfo] = useState([])
     const stubHub = useStubHub()
-    
+
     useEffect(() => {
         fetchAll()
-        stubHub.searchEvents()
-        .then(data => {
-            setStubHubInfo(data.events)
-        })
     }, [])
 
 
@@ -45,16 +41,14 @@ export default function Events() {
             setSeatGeek(results)
 
             const promises = results.map((event) => {
-                return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=atlanta&size=1&keyword=${event.title}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
+                return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=atlanta&size=1&keyword=${event.title.replace(/ *\([^)]*\) */g, "")}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
                     .then(res => {
                         if (res.ok) {
                             return res.json()
                         }
                         return null
                     })
-
                     .then(data => {
-                        console.log(data)
                         if (data.page.totalElements === 0) {
                             return data
                         }
@@ -69,9 +63,28 @@ export default function Events() {
                     )
             });
             Promise.all(promises).then(eventResults => {
-                console.log(eventResults)
                 setTicketMaster(eventResults)
+            })
 
+            const stubHubPromises = results.map(event => {
+                return stubHub.searchEvents("atlanta", event.title.replace(/ *\([^)]*\) */g, ""))
+
+                    .then(data => {
+                        if (data.numFound === 0) {
+                            return data
+                        }
+                        else {
+                            return data.events[0]
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        return null
+                    })
+            })
+            Promise.all(stubHubPromises).then(stubHubResults => {
+                console.log(stubHubResults)
+                setStubHubInfo(stubHubResults)
             })
 
         })
@@ -83,29 +96,30 @@ export default function Events() {
             <h1>Music Events in Atlanta</h1>
 
             <Row>
-                <Col>
-                    <h1>Seat Geek</h1>
+                <Col sm={4}>
+                    <h1>SeatGeek</h1>
                     {
                         seatGeek.map(event => {
                             return <SeatGeekCard event={event} />
                         })
                     }
                 </Col>
-                <Col>
-                    <h1>Ticket Master</h1>
+                <Col sm={4}>
+                    <h1>StubHub</h1>
+                    {
+                        stubHubInfo.map(event => {
+                            return <StubHubCard event={event} />
+                        })
+                    }
+                </Col>
+                <Col sm={4}>
+                    <h1>ticketmaster</h1>
                     {
 
                         ticketMaster.map(event => {
                             return <TicketMasterCard event={event} />
                         })
                     }
-                </Col>
-                <Col>
-                {
-                    stubHubInfo.map(event => {
-                        return <StubHubCard event={event} />
-                    })
-                }
                 </Col>
             </Row>
 

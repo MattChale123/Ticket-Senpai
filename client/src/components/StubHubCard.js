@@ -3,15 +3,13 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import StubHubLogo from '../img/stub-hub-logo.png';
 
 export default function StubHubCard(props) {
-
-
     return (
         <div>
             {
                 !props.event.id ? (
-                    <div>
+                    <div className="mt-3">
                     <Card style={{ width: '20rem' }}>
-                        <Card.img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo} />
+                        <Card.Img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo}  />
                         <Card.Body>
                             <Card.Title>No matching event found</Card.Title>
                             <hr></hr>
@@ -27,13 +25,13 @@ export default function StubHubCard(props) {
                     </div>
                 ) :
                 (
-                <div>
-                <Card style={{ width: '20rem' }}>
+                <div className="mt-3">
+                <Card style={{ width: '22rem' }}>
                         <Card.Img src={StubHubLogo} alt='StubHub logo' style={{height: '238px', width: '318px'}} />
                     <Card.Body>
                         <Card.Title>{props.event.name}</Card.Title>
                         <hr></hr>
-                        <a href={`https://google.com/maps/search/${props.event.venue.name} ${props.event.venue.city}`} target="_blank" without rel="noreferrer">
+                        <a href={`https://google.com/maps/search/${props.event.venue.name} ${props.event.venue.city}`} target="_blank" rel="noreferrer">
                             <span> @ {props.event.venue.name}</span>
                             </a>
                         <Card.Text>
@@ -46,7 +44,7 @@ export default function StubHubCard(props) {
                         </Row>
                         <Row>
                             <Col>
-                                <Button variant="success">{props.event.ticketInfo.minListPrice}</Button>
+                                <Button variant="success">${props.event.ticketInfo.minListPrice}</Button>
                             </Col>
                             <Col>
                                 <Button name="averagePrice" variant="primary">${
@@ -54,7 +52,7 @@ export default function StubHubCard(props) {
                                 </Button>
                             </Col>
                             <Col>
-                                <Button variant="danger">{props.event.ticketInfo.maxListPrice}</Button>
+                                <Button variant="danger">${props.event.ticketInfo.maxListPrice}</Button>
                             </Col>
                         </Row>
                     </Card.Body>
