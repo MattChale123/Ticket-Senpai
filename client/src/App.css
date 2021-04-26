@@ -7,7 +7,6 @@
   pointer-events: none;
 }
 
-/* screw you Angel */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
