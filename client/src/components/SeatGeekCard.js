@@ -25,9 +25,9 @@ export default function SeatGeekCard(props) {
                             </span> :
                             <div >
                                 <Row>
-                                    <Col >Low</Col>
-                                    <Col >Average</Col>
-                                    <Col >High</Col>
+                                    <Col>Low</Col>
+                                    <Col>Average</Col>
+                                    <Col>High</Col>
                                 </Row>
                                 <Row>
                                     <Col>
@@ -44,7 +44,6 @@ export default function SeatGeekCard(props) {
                     }
                 </Card.Body>
             </Card>
-
         </div>
     )
 }

@@ -17,8 +17,6 @@ export default function Events() {
     }, [])
 
 
-
-
     const fetchAll = () => {
         const URL = `https://api.seatgeek.com/2/events?page=1&venue.city=atlanta&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
         const promiseEvents = fetch(URL)
