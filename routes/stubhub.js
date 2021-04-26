@@ -29,7 +29,14 @@ router.post("/accesstoken", function (req, res, next) {
         "password": req.body.password
     })
   })
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        return {
+          error: 'Could not login to StubHub.'
+        }
+      }
+      return res.json()
+    })
     .then((data) => {
         // respond w/ access token
       res.json(data)
