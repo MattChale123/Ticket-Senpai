@@ -30,14 +30,15 @@ router.post("/accesstoken", function (req, res, next) {
     })
   })
     .then((res) => {
-      if (!res.ok) {
-        return {
-          error: 'Could not login to StubHub.'
-        }
-      }
       return res.json()
     })
     .then((data) => {
+      if (data.errorResponse) {
+        console.error(data.errorResponse)
+        return res.json({
+          error: 'Could not login to StubHub.'
+        })
+      }
         // respond w/ access token
       res.json(data)
       console.log(data);
