@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Jumbotron, Row } from 'react-bootstrap'
 import { useParams } from 'react-router'
 import SeatGeekCard from '../components/SeatGeekCard'
+import StubHubCard from '../components/StubHubCard'
 import TicketMasterCard from '../components/TicketMasterCard'
 import useStubHub from '../hooks/useStubHub'
 
@@ -14,6 +15,10 @@ export default function Events() {
     
     useEffect(() => {
         fetchAll()
+        stubHub.searchEvents()
+        .then(data => {
+            setStubHubInfo(data.events)
+        })
     }, [])
 
 
@@ -96,9 +101,11 @@ export default function Events() {
                     }
                 </Col>
                 <Col>
-                    <h1>StubHub</h1>
-                    <Jumbotron>
-                    </Jumbotron>
+                {
+                    stubHubInfo.map(event => {
+                        return <StubHubCard event={event} />
+                    })
+                }
                 </Col>
             </Row>
 

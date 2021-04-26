@@ -18,6 +18,7 @@ class StubHubAPI {
     }
     sendRequest(url, queries) {
         if (!this.accessToken){
+            console.log('no access token')
             return Promise.resolve(null)
         }
         const queryString = new URLSearchParams(queries).toString()
@@ -29,13 +30,13 @@ class StubHubAPI {
         })
         .then(res => res.json())
     }
-    searchEvents(queries) {
-        return this.sendRequest('/sellers/search/events/v3', queries)
+    searchEvents() {
+        return this.sendRequest('/sellers/search/events/v3', {rows:'4', parking: false} )
     }
     searchPerformers(name) {
         return this.sendRequest('/partners/search/performers/v3', {id: '450948'})
     }
     searchMusicByCity(city){
-        return this.sendRequest('/sellers/search/events/v3', {categoryName: 'concert', city, sort: 'popularity desc', parking: false})
+        return this.sendRequest('/sellers/search/events/v3', {categoryName: 'concert', city, performerName: 'weezer', sort: 'popularity desc', parking: false})
     }
 }

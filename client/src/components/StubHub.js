@@ -6,7 +6,7 @@ export default function StubHub() {
     const [search, setSearch] = useState('');
     const [stubHubData, setStubHubData] = useState([]);
 
-    const fetchStubHubData = () => {
+    const fetchStubHubData = () => {  
         // generate an access token with these steps:
         // 1. concatenate the app's consumer key & secret, separated by a colon:
         const consumerKey = 'CmcAzYV3wiQwL5kLZ4onoroVeAJH8hU3'
