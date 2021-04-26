@@ -18,7 +18,7 @@ export default function Home() {
         fetchTM()
         stubHub.searchMusicByCity('tampa')
         .then(data => {
-            console.log(data)
+            // console.log(data)
         })
     }, [])
 
@@ -30,7 +30,7 @@ export default function Home() {
             "KnvZfZ7v7nJ"//classical
         ]
         const promiseEvents = urls.map(url => {
-            return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&classificationId=${url}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
+            return fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=atlanta&classificationId=${url}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
                 .then(res => res.json())
                 .then(data => {
                     return data._embedded.events.splice(0, 4)
@@ -60,7 +60,7 @@ export default function Home() {
                     <Jumbotron>
                         <Row>
                             <Col sm={6}>
-                                <Link to= "/events" >
+                                <Link to= "/events/concert" >
                                     <h2>Music</h2>
                                     <Row className="home_row">
                                         <CardTN events={events.music} />
@@ -68,7 +68,7 @@ export default function Home() {
                                 </Link>
                             </Col>
                             <Col sm={6} >
-                                <Link>
+                                <Link to = "/events/sports">
                                     <h2>Sports</h2>
                                     <Row className="home_row" >
                                         <CardTN events={events.sports} />
@@ -76,7 +76,7 @@ export default function Home() {
                                 </Link>
                             </Col>
                             <Col sm={6} className="mt-3">
-                                <Link>
+                                <Link to ="events/comedy">
                                     <h2>Comedy</h2>
                                     <Row className="home_row" >
                                         <CardTN events={events.comedy} />
@@ -84,7 +84,7 @@ export default function Home() {
                                 </Link>
                             </Col>
                             <Col sm={6} className="mt-3">
-                                <Link>
+                                <Link to = "/events/classical">
                                     <h2>Classical</h2>
                                     <Row className="home_row" >
                                         <CardTN events={events.classical} />

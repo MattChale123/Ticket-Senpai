@@ -5,9 +5,11 @@ var logger = require('morgan');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const models = require('./models')
+require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var stubHubRouter = require('./routes/stubhub');
 
 var app = express();
 
@@ -30,5 +32,6 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/stubhub', stubHubRouter);
 
 module.exports = app;

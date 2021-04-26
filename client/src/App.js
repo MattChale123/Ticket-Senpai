@@ -29,7 +29,7 @@ function App() {
         <Route path="/profile">
           <Profile />
         </Route>
-        <Route path = "/events">
+        <Route path = "/events/:type">
           <Events/>
         </Route>
       </Switch>
