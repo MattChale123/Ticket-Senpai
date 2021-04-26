@@ -22,7 +22,7 @@ export default function Events() {
     }
 
     const fetchSeatGeak = () => {
-        const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=atlanta&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
+        const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=tampa&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
         fetch(URL)
             .then((res) => res.json())
             .then((data) => {
