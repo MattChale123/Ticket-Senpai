@@ -9,13 +9,14 @@ import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
 import SearchResults from './pages/SearchResults';
+import GoogleMaps from './components/GoogleMaps';
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
       <Switch>
         <Route path='/' exact>
+          <Navigation />
           <Home />
         </Route>
         <Route path="/register">
@@ -25,16 +26,24 @@ function App() {
           <Login />
         </Route>
         <Route path="/login/stubhub">
+          <Navigation />
           <StubHubLogin />
         </Route>
         <Route path="/profile">
+          <Navigation />
           <Profile />
         </Route>
         <Route path = "/events/:type">
+          <Navigation />
           <Events/>
         </Route>
         <Route path = "/search/:num/:param">
+          <Navigation />
           <SearchResults />
+        </Route>
+        <Route path='/directions'>
+          <Navigation />
+          <GoogleMaps />
         </Route>
       </Switch>
     </div>
