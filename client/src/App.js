@@ -8,7 +8,8 @@ import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
-import SearchResults from './pages/SearchResults';
+import SearchCityResults from './pages/SearchCityResults';
+import SearchPerformerResults from './pages/SearchPerformerResults';
 
 function App() {
   return (
@@ -33,8 +34,11 @@ function App() {
         <Route path = "/events/:type">
           <Events/>
         </Route>
-        <Route path = "/search/:num/:param">
-          <SearchResults />
+        <Route path = "/search/city/:param">
+          <SearchCityResults />
+        </Route>
+        <Route path = "/search/artist/:param">
+          <SearchPerformerResults />
         </Route>
       </Switch>
     </div>
