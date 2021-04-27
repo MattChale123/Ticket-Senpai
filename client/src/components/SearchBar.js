@@ -1,50 +1,30 @@
 import React, { useState } from 'react'
 import { DropdownButton, Dropdown, Form, InputGroup, Button, FormControl } from 'react-bootstrap';
-
+import { useHistory } from 'react-router';
 
 export default function SearchBar() {
+    const [searchDefault, setSearchDefault] = useState(true)
     const [searchCityForm, setSearchCityForm] = useState(false)
     const [searchPerformerForm, setSearchPerformerForm] = useState(false)
     const [searchParam, setSearchParam] = useState('');
-    const [seatGeekCityData, setSeatGeekCityData] = useState([])
-    const [seatGeekPerformerData, setSeatGeekPerformerData] = useState([])
+    const history = useHistory();
 
-    const fetchSeatGeakCity = () => {
-        const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=${searchParam}&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => {
-                setSeatGeekCityData(data.events)
-                console.log(data.events)
-                if (data.Error) {
-                    alert(data.Error);
-                }
-            });
-    }
-
-    const fetchSeatGeakPerformer = () => {
-        const URL = `https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=${searchParam}&taxonomies.name=sports&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`
-        fetch(URL)
-            .then((res) => res.json())
-            .then((data) => {
-                setSeatGeekPerformerData(data.events)
-                console.log(data.events)
-                if (data.Error) {
-                    alert(data.Error);
-                }
-            });
-    }
-
-    const handleSubmitCity = (event) => {
-        event.preventDefault();
-        fetchSeatGeakCity()
+    const handleSubmitDefault = () => {
+        history.push(`/search/1/${searchParam}`)
+        setSearchParam("")
+    };
+    const handleSubmitCity = () => {
+        history.push(`/search/1/${searchParam}`)
+        setSearchParam("")
     };
 
-    const handleSubmitPerformer = (event) => {
-        event.preventDefault();
-        fetchSeatGeakPerformer()
+    const handleSubmitPerformer = () => {
+        history.push(`/search/2/${searchParam}`)
+        setSearchParam("")
     };
     
+    
+
     const handleChange = (event) => {
         setSearchParam(event.target.value);
     };
@@ -54,30 +34,57 @@ export default function SearchBar() {
             case "City": 
                 return (
                     setSearchCityForm(true),
-                 setSearchPerformerForm(false)
+                 setSearchPerformerForm(false),
+                 setSearchDefault(false)
                  );
-
             case "Performer": 
                 return (
                     setSearchPerformerForm(true),
-                        setSearchCityForm(false)
-                        )
+                        setSearchCityForm(false),
+                        setSearchDefault(false)
+                        );
             default:
-                return ""
+                return (setSearchDefault(true),
+                        setSearchCityForm(false),
+                        setSearchPerformerForm(false)
+                        )
         }
     }
     
     return (
-        <div>
+        <div className="searchBar mt-3">
             <DropdownButton
                 alignRight
-                title="Dropdown right"
+                title="Search By"
                 id="dropdown-menu-align-right"
                 onSelect={onChangeCity}
             >
-                <Dropdown.Item eventKey="City" >City</Dropdown.Item>
-                <Dropdown.Item eventKey="Performer" >Performer</Dropdown.Item>
+                <Dropdown.Item eventKey="City">City</Dropdown.Item>
+                <Dropdown.Item eventKey="Performer">Performer</Dropdown.Item>
             </DropdownButton>
+            {
+                searchDefault && 
+                            <Form onSubmit={handleSubmitDefault} className="cityForm">
+                                <InputGroup className="mb-3 inputGrp">
+                                    <div>
+                                        <FormControl
+                                            placeholder="Enter a City"
+                                            aria-label="Enter a City"
+                                            onChange={handleChange}
+                                            value={searchParam}
+                                            required
+                                        />
+                                    </div>
+                                    <div>
+                                        <InputGroup.Append>
+                                            <Button type="submit" variant="outline-info">
+                                                Search
+                                            </Button>
+                                        </InputGroup.Append>
+                                    </div>
+                                </InputGroup>
+                            </Form>
+            }
             <div>
             {
                 searchCityForm && 
