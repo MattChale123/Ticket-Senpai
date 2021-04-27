@@ -9,6 +9,7 @@ export default function StubHubCard(props) {
                 !props.event.id ? (
                     <div className="mt-3">
                     <Card style={{ width: '20rem' }}>
+
                         <Card.Img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo}  />
                         <Card.Body>
                             <Card.Title>No matching event found</Card.Title>
