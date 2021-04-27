@@ -11,7 +11,7 @@ export default function StubHubCard(props) {
                 !props.event.id ? (
                     <div>
                     <Card style={{ width: '20rem' }}>
-                        <Card.img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo} />
+                        <Card.Img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo} />
                         <Card.Body>
                             <Card.Title>No matching event found</Card.Title>
                             <hr></hr>
@@ -33,7 +33,7 @@ export default function StubHubCard(props) {
                     <Card.Body>
                         <Card.Title>{props.event.name}</Card.Title>
                         <hr></hr>
-                        <a href={`https://google.com/maps/search/${props.event.venue.name} ${props.event.venue.city}`} target="_blank" without rel="noreferrer">
+                        <a href={`https://google.com/maps/search/${props.event.venue.name} ${props.event.venue.city}`} target="_blank" rel="noreferrer">
                             <span> @ {props.event.venue.name}</span>
                             </a>
                         <Card.Text>
