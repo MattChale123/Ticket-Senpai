@@ -1,14 +1,14 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import moment from 'moment'
 
 export default function TicketMasterCard(props) {
-
     return (
         <div className="mt-3">
             {
                 !props.event?.id ? (
                     <Card style={{ width: '20rem' }}>
-                        <Card.Img variant="top" style={{height:"238px", width:"318px"}} src={"https://www.livenation.com/ticketmaster/img/ticketmaster-banner2500w.png"} />
+                        <Card.Img variant="top" style={{ height: "238px", width: "318px" }} src={"https://www.livenation.com/ticketmaster/img/ticketmaster-banner2500w.png"} />
                         <Card.Body>
                             <Card.Title>No matching event found</Card.Title>
                             <hr></hr>
@@ -18,8 +18,8 @@ export default function TicketMasterCard(props) {
                         </Card.Text>
                             <span style={{ color: 'red' }}>
                                 No tickets currently available from this Vendor
-                            </span> 
-                    </Card.Body>
+                            </span>
+                        </Card.Body>
                     </Card>
                 ) :
                     (
@@ -32,7 +32,10 @@ export default function TicketMasterCard(props) {
                                 <a href={`https://google.com/maps/search/${props.event._embedded.venues[0].name} ${props.event._embedded.venues[0].city.name}`} target="_blank" rel="noreferrer">
                                     <span> @ {props.event._embedded.venues[0].name}</span>
                                 </a>
-                                    <div>{props.event.dates.start.localDate}</div>
+                                <div>
+                                {moment(`${props.event.dates.start.localDate}`).format('MM/D/YYYY')}
+                                </div>
+
                                 <Card.Text>
                                     Price of Tickets:
                                 </Card.Text>
@@ -48,17 +51,17 @@ export default function TicketMasterCard(props) {
                                                 <Col >Average</Col>
                                                 <Col >High</Col>
                                             </Row>
-                                            <Row>
-                                                <Col>
-                                                    <Button href={props.event.url} variant="success">${props.event.priceRanges[0].min}</Button>
+                                            <Row >
+                                                <Col sm={4}>
+                                                    <Button href={props.event.url} variant="success">${Math.round(props.event.priceRanges[0].min)}</Button>
                                                 </Col>
-                                                <Col>
+                                                <Col sm={4}>
                                                     <Button href={props.event.url} name="averagePrice" variant="primary">
-                                                        ${(props.event.priceRanges[0].min + props.event.priceRanges[0].max) / 2}
+                                                        ${Math.round((props.event.priceRanges[0].min + props.event.priceRanges[0].max) / 2)}
                                                     </Button>
                                                 </Col>
-                                                <Col>
-                                                    <Button href={props.event.url} variant="danger">${props.event.priceRanges[0].max}</Button>
+                                                <Col sm={4}>
+                                                    <Button href={props.event.url} variant="danger">${Math.round(props.event.priceRanges[0].max)}</Button>
                                                 </Col>
                                             </Row>
                                         </div>
