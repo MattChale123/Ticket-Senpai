@@ -8,7 +8,6 @@ import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
-import Home2 from './pages/Home2';
 import SearchCityResults from './pages/SearchCityResults';
 import SearchPerformerResults from './pages/SearchPerformerResults';
 import Prices from './pages/Prices';
@@ -20,7 +19,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route path='/' exact>
-          <Home2 />
+          <Home/>
         </Route>
         <Route path="/register">
           <Register />

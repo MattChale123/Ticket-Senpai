@@ -1,15 +1,20 @@
-import React from 'react';
 import SliderCard from './SliderCard';
 
 export default function Slider(props) {
 
     return (
         <div className="separator">
-            <h2 className="separator-title twice">Concerts</h2>
+            <h2 className="separator-title twice">{props.title}</h2>
             <div>
                 <hr className="line" />
                 <div className="slider overflow-auto">
-                    <SliderCard />
+                    {
+                        props.events.map(event => {
+                            return(
+                                <SliderCard event={event} />
+                            )
+                        })
+                    }
                 </div>
                 <hr className="line" />
             </div>
