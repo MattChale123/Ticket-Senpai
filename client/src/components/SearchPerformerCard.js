@@ -1,14 +1,22 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import { useHistory } from 'react-router';
 
 export default function SearchPerformerCard(props) {
     const { url, venue, performers, stats, title } = props.event;
     const noTicketStr = "No tickets currently available from this Vendor"
+    const history = useHistory()
+
+    const handleClick = () => {
+        history.push({
+            pathname: `/prices/${title.replace(/ *\([^)]*\) */g, "")}`,
+            state: {event: props.event}
+        })
+    }
 
     return (
         <div>
             <Card style={{ width: '20rem' }}>
-                <a href={url}><Card.Img variant="top" src={`${performers[0].image}`} /></a>
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <hr></hr>
@@ -26,7 +34,7 @@ export default function SearchPerformerCard(props) {
                                 <div >
                                     <Row>
                                         <Col>
-                                            <Button name="compareButton" variant="primary">Compare Prices</Button>
+                                            <Button variant="primary" onClick={handleClick}>Compare</Button>
                                         </Col>
                                     </Row>
                                 </div>
