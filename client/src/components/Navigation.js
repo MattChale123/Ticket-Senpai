@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { setUser } from '../redux/actions';
 import SearchBar from './SearchBar'
 import './Navigation.css';
+import senpaiLogo from './senpailogopurple.svg'
 
 const Navigation = () => {
     const user = useSelector((state) => state.user);
@@ -18,13 +19,13 @@ const Navigation = () => {
                 }
             })
     }
-
+    
     return (
         <>
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar-and-search">
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>
-                    <Navbar.Brand href="#home">Ticket-Senpai</Navbar.Brand>
+                    <img class="senpaiLogo" src={senpaiLogo} alt=""></img>
                     <Col> 
                         <Nav className="mr-auto">
                         <Nav.Link href="#home">Home</Nav.Link>

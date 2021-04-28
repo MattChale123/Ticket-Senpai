@@ -4,3 +4,8 @@
     align-items: center;
     padding-right: 110px;
 }
+
+.senpaiLogo {
+    max-width: 5em;
+    max-height: 5em;
+}
