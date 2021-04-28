@@ -5,6 +5,11 @@ import SeatGeekCard from '../components/SeatGeekCard'
 import StubHubCard from '../components/StubHubCard'
 import TicketMasterCard from '../components/TicketMasterCard'
 import useStubHub from '../hooks/useStubHub'
+import seatGeekLogo from '../img/seatgeek.png';
+import stubHubLogo from '../img/stubhub.png';
+import ticketMasterLogo from '../img/ticketmaster.svg'
+
+
 
 export default function Events() {
     const [ticketMaster, setTicketMaster] = useState([])
@@ -97,7 +102,7 @@ export default function Events() {
 
             <Row>
                 <Col sm={4}>
-                    <h1>SeatGeek</h1>
+                    <img className="seatGeekLogo" src={seatGeekLogo} alt="" />
                     {
                         seatGeek.map(event => {
                             return <SeatGeekCard event={event} />
@@ -105,7 +110,7 @@ export default function Events() {
                     }
                 </Col>
                 <Col sm={4}>
-                    <h1>StubHub</h1>
+                    <img className="stubHubLogo" src={stubHubLogo} alt="stubhub logo"/>
                     {
                         stubHubInfo.map(event => {
                             return <StubHubCard event={event} />
@@ -113,7 +118,7 @@ export default function Events() {
                     }
                 </Col>
                 <Col sm={4}>
-                    <h1>ticketmaster</h1>
+                    <img className="ticketmasterLogo" src= {ticketMasterLogo} alt = "ticketmaster logo"/>
                     {
 
                         ticketMaster.map(event => {
