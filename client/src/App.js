@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
 import SearchResults from './pages/SearchResults';
+import Home2 from './pages/Home2';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route path='/' exact>
-          <Home />
+          <Home2 />
         </Route>
         <Route path="/register">
           <Register />
