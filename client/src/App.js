@@ -11,6 +11,7 @@ import Events from './pages/Events';
 import SearchCityResults from './pages/SearchCityResults';
 import SearchPerformerResults from './pages/SearchPerformerResults';
 import Prices from './pages/Prices';
+import GoogleMaps from './components/GoogleMaps'
 
 function App() {
   return (
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route path = "/prices/:name">
           <Prices />
+        </Route>
+        <Route path='/directions'>
+          <GoogleMaps />
         </Route>
       </Switch>
     </div>
