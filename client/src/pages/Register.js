@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { Button, Col, Form, FormControl, InputGroup } from 'react-bootstrap'
-import background from '../img/register-page.jpeg'
+import background from '../components/senpailogopurple.svg'
 
 export default function Register() {
     const [ error, setError ] = useState('')

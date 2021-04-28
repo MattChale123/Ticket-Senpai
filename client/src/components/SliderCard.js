@@ -1,25 +1,32 @@
 import React from 'react';
 import '../App.css';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import concertImg from '../img/concerts.png';
+import { Link, useHistory } from 'react-router-dom';
+import moment from 'moment'
 
-export default function SliderCard() {
+export default function SliderCard(props) {
+    const history = useHistory()
 
+    const handleClick = () => {
+        history.push({
+            pathname: `/prices/${props.event.title.replace(/ *\([^)]*\) */g, "")}`,
+            state: {event: props.event}
+        })
+    }
 
     return (
         <div>
-            <Link className="card2">
-                <img src={concertImg} alt="concerts"></img>
+            <div className="card2" onClick={handleClick} >
+                <img src={props.event.performers[0].image} alt="concerts"></img>
             <div className="card-content">
-                <div className="card-content-title">Justin Bieber</div>
-                <Button className="card-content-details" variant="outline-primary">Details</Button>
+                <div className="card-content-title">{props.event.title}</div>
+                <Button  className="card-content-details" variant="outline-primary" onClick={handleClick}>Compare</Button>
                 <div className="card-content-footer">
-                    <div>Type: Concert</div>
-                    <div>Date: July 2021</div>
+                    <div>{props.event.venue.city}, {props.event.venue.state}</div>
+                    <div>{moment.parseZone(props.event.datetime_local).format('MM/D/YYYY')}</div>
                 </div>
             </div>
-            </Link>
+            </div>
         </div>
     )
 }

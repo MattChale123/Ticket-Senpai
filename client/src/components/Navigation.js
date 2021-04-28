@@ -25,7 +25,7 @@ const Navigation = () => {
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar-and-search">
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>
-                    <img class="senpaiLogo" src={senpaiLogo} alt=""></img>
+                    <img className="senpaiLogo" src={senpaiLogo} alt=""></img>
                     <Col> 
                         <Nav className="mr-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
