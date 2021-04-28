@@ -4,7 +4,7 @@ import { Loader } from "@googlemaps/js-api-loader"
 import usePosition from '../hooks/usePosition'
 
 const loader = new Loader({
-    apiKey: 'AIzaSyBxCFPMNQ1YqokuJM8pwSnWnqNByNzEPl0',
+    apiKey: '',
     version: "beta",
   });
 
