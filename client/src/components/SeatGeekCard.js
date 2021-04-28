@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import moment from 'moment'
 
 export default function SeatGeekCard(props) {
     const { url, venue, performers, stats, title } = props.event;
@@ -15,6 +16,9 @@ export default function SeatGeekCard(props) {
                     <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" rel="noreferrer">
                         <span> @ {venue.name_v2}</span>
                     </a>
+                    <div>
+                        {moment.parseZone(props.event.datetime_local).format('MM/D/YYYY')}
+                    </div>
                     <Card.Text>
                         Price of Tickets:
                      </Card.Text>
