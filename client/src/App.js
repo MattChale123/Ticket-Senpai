@@ -8,8 +8,10 @@ import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
-import SearchResults from './pages/SearchResults';
-import GoogleMaps from './components/GoogleMaps';
+import SearchCityResults from './pages/SearchCityResults';
+import SearchPerformerResults from './pages/SearchPerformerResults';
+import Prices from './pages/Prices';
+import GoogleMaps from './components/GoogleMaps'
 
 function App() {
   return (
@@ -37,9 +39,14 @@ function App() {
           <Navigation />
           <Events/>
         </Route>
-        <Route path = "/search/:num/:param">
-          <Navigation />
-          <SearchResults />
+        <Route path = "/search/city/:param">
+          <SearchCityResults />
+        </Route>
+        <Route path = "/search/artist/:param">
+          <SearchPerformerResults />
+        </Route>
+        <Route path = "/prices/:name">
+          <Prices />
         </Route>
         <Route path='/directions'>
           <Navigation />

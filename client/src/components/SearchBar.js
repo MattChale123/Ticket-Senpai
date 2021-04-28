@@ -4,53 +4,47 @@ import { useHistory } from 'react-router';
 
 export default function SearchBar() {
     const [searchDefault, setSearchDefault] = useState(true)
-    const [searchCityForm, setSearchCityForm] = useState(false)
+    const [searchCityForm, setSearchCityForm] = useState(true)
     const [searchPerformerForm, setSearchPerformerForm] = useState(false)
     const [searchParam, setSearchParam] = useState('');
     const history = useHistory();
 
-    const handleSubmitDefault = () => {
-        history.push(`/search/1/${searchParam}`)
-        setSearchParam("")
-    };
-    const handleSubmitCity = () => {
-        history.push(`/search/1/${searchParam}`)
+    const handleSubmitCity = (e) => {
+        e.preventDefault()
+        history.push(`/search/city/${searchParam}`)
         setSearchParam("")
     };
 
-    const handleSubmitPerformer = () => {
-        history.push(`/search/2/${searchParam}`)
+    const handleSubmitPerformer = (e) => {
+        e.preventDefault()
+        history.push(`/search/artist/${searchParam}`)
         setSearchParam("")
+
     };
-    
-    
 
     const handleChange = (event) => {
         setSearchParam(event.target.value);
     };
 
     const onChangeCity = (event) => {
-        switch(event) {
-            case "City": 
+        switch (event) {
+            case "City":
                 return (
                     setSearchCityForm(true),
-                 setSearchPerformerForm(false),
-                 setSearchDefault(false)
-                 );
-            case "Performer": 
+                    setSearchPerformerForm(false),
+                    setSearchDefault(true)
+                );
+            case "Performer":
                 return (
                     setSearchPerformerForm(true),
-                        setSearchCityForm(false),
-                        setSearchDefault(false)
-                        );
+                    setSearchCityForm(false),
+                    setSearchDefault(false)
+                )
             default:
-                return (setSearchDefault(true),
-                        setSearchCityForm(false),
-                        setSearchPerformerForm(false)
-                        )
+                return ""
         }
     }
-    
+
     return (
         <div className="searchBar mt-3">
             <DropdownButton
@@ -62,76 +56,52 @@ export default function SearchBar() {
                 <Dropdown.Item eventKey="City">City</Dropdown.Item>
                 <Dropdown.Item eventKey="Performer">Performer</Dropdown.Item>
             </DropdownButton>
-            {
-                searchDefault && 
-                            <Form onSubmit={handleSubmitDefault} className="cityForm">
-                                <InputGroup className="mb-3 inputGrp">
-                                    <div>
-                                        <FormControl
-                                            placeholder="Enter a City"
-                                            aria-label="Enter a City"
-                                            onChange={handleChange}
-                                            value={searchParam}
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <InputGroup.Append>
-                                            <Button type="submit" variant="outline-info">
-                                                Search
-                                            </Button>
-                                        </InputGroup.Append>
-                                    </div>
-                                </InputGroup>
-                            </Form>
-            }
             <div>
-            {
-                searchCityForm && 
-                            <Form onSubmit={handleSubmitCity} className="cityForm">
-                                <InputGroup className="mb-3 inputGrp">
-                                    <div>
-                                        <FormControl
-                                            placeholder="Enter a City"
-                                            aria-label="Enter a City"
-                                            onChange={handleChange}
-                                            value={searchParam}
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <InputGroup.Append>
-                                            <Button type="submit" variant="outline-info">
-                                                Search
+                {
+                    searchCityForm && searchDefault ? (
+                        <Form onSubmit={handleSubmitCity} className="cityForm">
+                            <InputGroup className="mb-3 inputGrp">
+                                <div>
+                                    <FormControl
+                                        placeholder="Enter a City"
+                                        aria-label="Enter a City"
+                                        onChange={handleChange}
+                                        value={searchParam}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <InputGroup.Append>
+                                        <Button type="submit" variant="outline-info">
+                                            Search
                                             </Button>
-                                        </InputGroup.Append>
-                                    </div>
-                                </InputGroup>
-                            </Form>
-            }
-            {
-                searchPerformerForm && 
-                            <Form onSubmit={handleSubmitPerformer} className="cityForm">
-                                <InputGroup className="mb-3 inputGrp">
-                                    <div>
-                                        <FormControl
-                                            placeholder="Enter a Performer"
-                                            aria-label="Enter a Performer"
-                                            onChange={handleChange}
-                                            value={searchParam}
-                                            required
-                                        />
-                                    </div>
-                                    <div>
-                                        <InputGroup.Append>
-                                            <Button type="submit" variant="outline-info">
-                                                Search
-                                            </Button>
-                                        </InputGroup.Append>
-                                    </div>
-                                </InputGroup>
-                            </Form>
-            }
+                                    </InputGroup.Append>
+                                </div>
+                            </InputGroup>
+                        </Form>
+                    ) : (
+                        <Form onSubmit={handleSubmitPerformer} className="cityForm">
+                            <InputGroup className="mb-3 inputGrp">
+                                <div>
+                                    <FormControl
+                                        placeholder="Enter a Performer"
+                                        aria-label="Enter a Performer"
+                                        onChange={handleChange}
+                                        value={searchParam}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <InputGroup.Append>
+                                        <Button type="submit" variant="outline-info">
+                                            Search
+                                        </Button>
+                                    </InputGroup.Append>
+                                </div>
+                            </InputGroup>
+                        </Form>
+                    )
+                }
             </div>
         </div>
     )
