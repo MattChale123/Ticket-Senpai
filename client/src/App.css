@@ -1,4 +1,6 @@
 .App {
+  background-color: black;
+  color: white;
 }
 
 .home_img{
@@ -23,3 +25,120 @@
   flex-direction: row;
 }
 
+.copyright {
+  font-size: 11px;
+}
+
+/* slider */
+
+@media (max-width: 600px){
+
+  .slider{
+      overflow-x: scroll;
+  }
+}
+
+.slider{
+    display: flex;
+    overflow-x: hidden;
+    padding-top: 16px;
+    padding-bottom: 32px;
+    transition: .3s ease-in-out;
+}
+
+.card2{
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  position: relative;
+  width: 200px;
+  height: 300px;
+  transition: .3s ease-in-out;
+  cursor: pointer;
+  border-radius: 8px;
+  color: red;
+  text-decoration: none;
+  background-color:black  !important;
+}
+
+.card-image{
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+.card-content, .card-image {
+  border-radius: 8px;
+  transform: scale(.9);
+  transition: .3s ease-in-out;
+}
+
+.card-content {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card-content-title {
+  text-align: center;
+  font-weight: 700;
+}
+
+.card-content-footer{
+  text-align: center;
+  font-weight: 700;
+}
+
+.card-content-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+    background: none;
+    border: none;
+    outline: none;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    color: #e9e9e9;
+    border: 2px solid #e9e9e9;
+    border-radius: 15px;
+    transition: transform .3s ease-in-out;
+    text-decoration: none;
+}
+
+.card2, button {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+div{
+  display: block;
+}
+
+.card2:hover{
+  box-shadow:0 0 12px rgba(0,0,0,.5);
+}
+.card2:hover .card-image{transform:scale(1)}
+
+.card2:hover .card-content{
+  -webkit-backdrop-filter:blur(2px);
+  backdrop-filter:blur(2px);
+  opacity:1;
+  background-color:rgba(0,0,0,.5);
+  transform:scale(1);
+  color: white;
+}
+
+.line{
+  border: 2px  solid gray;
+  /* background-image: linear-gradient(to bottom right, red, yellow); */
+}

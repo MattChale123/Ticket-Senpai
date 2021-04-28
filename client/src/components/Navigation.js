@@ -22,7 +22,7 @@ const Navigation = () => {
     
     return (
         <>
-        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
+        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar-and-search">
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>
                     <img class="senpaiLogo" src={senpaiLogo} alt=""></img>
@@ -34,9 +34,6 @@ const Navigation = () => {
                         </Nav>
                     </Col>
                     </Navbar.Collapse>
-                    <Col>
-                        <SearchBar />
-                    </Col>
                     {user ? (
                         <Col className="text-right">
                             <Button color='inherit' onClick={logout}>Logout</Button>
@@ -48,6 +45,13 @@ const Navigation = () => {
                     )
                 }
                 </Navbar>
+                <div className="bg-primary border border-primary navbar-and-search">
+                <Container>
+                    <Col>
+                        <SearchBar />
+                    </Col>
+                </Container>
+                </div>
         </>
     )
 }

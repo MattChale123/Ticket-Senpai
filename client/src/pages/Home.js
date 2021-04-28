@@ -92,10 +92,12 @@ export default function Home() {
                                 </Link>
                             </Col>
                         </Row>
-
                     </Jumbotron>
                 </Col>
             </Row>
+        <Container>
+            <p className="copyright">&#169; Copyright 2021 Ticket-Senpai. All Rights Reserved.</p>
+        </Container>
         </Container>
     )
 }
