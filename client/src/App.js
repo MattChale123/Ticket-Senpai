@@ -8,9 +8,11 @@ import Navigation from './components/Navigation';
 import Profile from './pages/Profile';
 import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
+import Home2 from './pages/Home2';
 import SearchCityResults from './pages/SearchCityResults';
 import SearchPerformerResults from './pages/SearchPerformerResults';
 import Prices from './pages/Prices';
+import GoogleMaps from './components/GoogleMaps'
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
       <Navigation />
       <Switch>
         <Route path='/' exact>
-          <Home />
+          <Home2 />
         </Route>
         <Route path="/register">
           <Register />
@@ -43,6 +45,9 @@ function App() {
         </Route>
         <Route path = "/prices/:name">
           <Prices />
+        </Route>
+        <Route path='/directions'>
+          <GoogleMaps />
         </Route>
       </Switch>
     </div>
