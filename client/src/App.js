@@ -16,9 +16,9 @@ import GoogleMaps from './components/GoogleMaps'
 function App() {
   return (
     <div className="App">
+      <Navigation />
       <Switch>
         <Route path='/' exact>
-          <Navigation />
           <Home />
         </Route>
         <Route path="/register">
@@ -28,15 +28,12 @@ function App() {
           <Login />
         </Route>
         <Route path="/login/stubhub">
-          <Navigation />
           <StubHubLogin />
         </Route>
         <Route path="/profile">
-          <Navigation />
           <Profile />
         </Route>
         <Route path = "/events/:type">
-          <Navigation />
           <Events/>
         </Route>
         <Route path = "/search/city/:param">
@@ -49,7 +46,6 @@ function App() {
           <Prices />
         </Route>
         <Route path='/directions'>
-          <Navigation />
           <GoogleMaps />
         </Route>
       </Switch>
