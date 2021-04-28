@@ -10,6 +10,7 @@ import StubHubLogin from './pages/StubHubLogin';
 import Events from './pages/Events';
 import SearchCityResults from './pages/SearchCityResults';
 import SearchPerformerResults from './pages/SearchPerformerResults';
+import Prices from './pages/Prices';
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path = "/search/artist/:param">
           <SearchPerformerResults />
+        </Route>
+        <Route path = "/prices/:name">
+          <Prices />
         </Route>
       </Switch>
     </div>
