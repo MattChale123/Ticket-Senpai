@@ -25,6 +25,18 @@
   flex-direction: row;
 }
 
+.seatGeekLogo{
+  width: 230px;
+}
+
+.stubHubLogo{
+  height: 80px;
+
+}
+.ticketmasterLogo{
+  height: 90px;
+}
+
 .copyright {
   font-size: 11px;
 }
