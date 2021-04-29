@@ -39,7 +39,7 @@ function App() {
         <Route path = "/search/city/:param">
           <SearchCityResults />
         </Route>
-        <Route path = "/search/artist/:param">
+        <Route path = "/search/performer/:param">
           <SearchPerformerResults />
         </Route>
         <Route path = "/prices/:name">

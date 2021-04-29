@@ -11,7 +11,7 @@ export default function SearchCityResults() {
     }, [param]);
 
     const fetchCityResults = () => {
-        fetch(`https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=${param}&taxonomies.name=concert&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
+        fetch(`https://api.seatgeek.com/2/events?per_page=4&page=1&venue.city=${param}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
             .then((res) => res.json())
             .then((data) => {
                 if (!data.error) {
