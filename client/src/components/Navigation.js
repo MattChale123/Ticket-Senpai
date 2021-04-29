@@ -30,11 +30,9 @@ const Navigation = () => {
     return (
         <>
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar">
-                {/* <Navbar.Toggle aria-controls='responsive-navbar-nav' /> */}
-                {/* <Navbar.Collapse id='responsive-navbar-nav'> */}
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
                         <img onClick={() => handleClick('/')}  className="senpaiBanner" src={senpaiBanner} alt=""></img>
-                    {/* </Navbar.Collapse> */}
+
                     {user ? (
                         <Col className="text-right">
                             <Button color='inherit' onClick={() => handleClick('/login')}>Logout</Button>
