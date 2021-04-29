@@ -4,28 +4,32 @@ import { Loader } from "@googlemaps/js-api-loader"
 import usePosition from '../hooks/usePosition'
 
 const loader = new Loader({
-    apiKey: 'AIzaSyA5flBGhuvWuB2w2Qh6hD5o81MAlJYtwR0',
+    apiKey: 'AIzaSyBxCFPMNQ1YqokuJM8pwSnWnqNByNzEPl0',
     version: "beta",
   });
 
-export default function GoogleMaps() {
+export default function GoogleMaps(props) {
     const  { latitude, longitude } = usePosition()
     const [ results, setResults ] = useState([])
+    console.log(results)
     const [ googleMaps, setGoogleMaps ] = useState(null)
     const [ form, setForm ] = useState({
         origin: '',
-        destination: ''
+        destination: [props.address.address, props.address.city, props.address.state, props.address.postal_code]
     })
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        const position = new googleMaps.LatLng(latitude, longitude)
+        const position = new googleMaps.LatLng(props.eventLatitude, props.eventLng)
         const service = new googleMaps.DistanceMatrixService();
+        console.log(form.origin)
+        console.log(position)
         service.getDistanceMatrix({
-            origins: [position] || [form.origin],
-            destinations: [form.destination],
+            origins: [...form.origin].length > 0 ? [form.origin] : [position],
+            destinations: [props.address.address, props.address.city, props.address.state, props.address.postal_code] || [form.destination],
             travelMode: 'DRIVING',
-        }).then(data => {
+        })
+        .then(data => {
             console.log(data)
             setResults(data.rows)
         })
@@ -62,8 +66,8 @@ export default function GoogleMaps() {
                 return (
                     <Card>
                         <Card.Body>
-                            <Card.Text>{metersToMiles(result.elements[0].distance.value)} miles</Card.Text>
-                            <Card.Text>{result.elements[0].duration.text}</Card.Text>
+                        <Card.Text>{metersToMiles(result.elements[0].distance.value)} miles</Card.Text>
+                          <Card.Text>{result.elements[0].duration.text}</Card.Text>
                         </Card.Body>
                     </Card>
                 )
