@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import { Button } from 'react-bootstrap';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import moment from 'moment'
 
 export default function SliderCard(props) {

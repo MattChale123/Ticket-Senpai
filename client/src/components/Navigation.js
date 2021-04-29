@@ -34,9 +34,9 @@ const Navigation = () => {
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
                     <Col> 
                         <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
+                        {/* <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="#events">Events</Nav.Link>
-                        <Nav.Link href="#favorites">Favorites</Nav.Link>
+                        <Nav.Link href="#favorites">Favorites</Nav.Link> */}
                         </Nav>
                     </Col>
                     </Navbar.Collapse>

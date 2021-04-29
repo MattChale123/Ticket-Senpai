@@ -29,7 +29,9 @@ export default function StubHubCard(props) {
                 (
                 <div className="mt-3">
                 <Card style={{ width: '20rem' }}>
-                        <Card.Img src={StubHubLogo} alt='StubHub logo' style={{height: '238px', width: '318px'}} />
+                      <a href={`https://www.stubhub.com//${props.event.webURI}`}>
+                           <Card.Img src={StubHubLogo} alt='StubHub logo' style={{height: '238px', width: '318px'}} />
+                        </a>
                     <Card.Body>
                         <Card.Title>{props.event.name}</Card.Title>
                         <hr></hr>
@@ -49,15 +51,17 @@ export default function StubHubCard(props) {
                         </Row>
                         <Row>
                             <Col sm={4}>
-                                <Button variant="success">${Math.round(props.event.ticketInfo.minListPrice)}</Button>
+                                <Button href={`https://www.stubhub.com//${props.event.webURI}`} variant="success">${Math.round(props.event.ticketInfo.minListPrice)}</Button>
                             </Col>
                             <Col sm={4}>
-                                <Button name="averagePrice" variant="primary">${
+                                <Button href={`https://www.stubhub.com//${props.event.webURI}`} name="averagePrice" variant="primary">${
                                 Math.round((props.event.ticketInfo.maxListPrice + props.event.ticketInfo.minListPrice) / 2)}
                                 </Button>
                             </Col>
                             <Col sm={4}>
-                                <Button variant="danger">${Math.round(props.event.ticketInfo.maxListPrice)}</Button>
+                                <Button href={`https://www.stubhub.com//${props.event.webURI}`}variant="danger">
+                                    ${Math.round(props.event.ticketInfo.maxListPrice)}
+                                </Button>
                             </Col>
                         </Row>
                     </Card.Body>
