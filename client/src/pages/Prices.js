@@ -93,7 +93,7 @@ export default function Prices(props) {
                 <Col className="mt-3">
                     <h3>Distance to event.</h3>
                     <h5>Either use current location, or enter origin.</h5>
-                    <p>(Location manuelly filled if accepted)</p>
+                    <p>(Location automatically filled if accepted)</p>
                     <div>
                         <GoogleMaps eventLatitude={latitude} eventLng={longitude} address={address} />
                     </div>
