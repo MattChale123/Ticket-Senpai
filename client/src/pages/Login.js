@@ -50,7 +50,7 @@ export default function Login() {
       const styling = {
         backgroundColor: 'rgba(255, 255, 255, .15)',
         backdropFilter: 'blur(5px)',
-        color: 'white',
+        color: 'black',
         flexDirection: 'column',
         display: 'block',
         marginLeft: 'auto',
@@ -58,7 +58,8 @@ export default function Login() {
         textAlign: 'left',
         opacity: '.85',
         border: '2px solid black',
-        width: '35%'
+        width: '35%',
+        padding: '10px'
     }
     return (
         <div style={{ 
@@ -69,7 +70,7 @@ export default function Login() {
           backgroundSize: '90% 100%',
           height: '1100px'
          }}>
-            <h1>Login</h1>
+            <h1 style={{textAlign: 'center'}}>Login</h1>
               <div style={styling}>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group controlId="formBasicEmail">
