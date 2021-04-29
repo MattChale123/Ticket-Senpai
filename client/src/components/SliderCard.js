@@ -27,6 +27,9 @@ export default function SliderCard(props) {
                 </div>
             </div>
             </div>
+            <div className="card-event-title">
+                {props.event.title.replace(/ *\([^)]*\) */g, "")}
+            </div>
         </div>
     )
 }
