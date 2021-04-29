@@ -6,6 +6,17 @@
 }
 
 .senpaiLogo {
-    max-width: 5em;
-    max-height: 5em;
+    max-width: 5.5em;
+    max-height: 5.5em;
+    display: flex;
+    cursor: pointer;
 }
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+  }
+

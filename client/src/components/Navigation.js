@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { setUser } from '../redux/actions';
 import SearchBar from './SearchBar'
 import './Navigation.css';
@@ -19,24 +19,23 @@ const Navigation = () => {
                 }
             })
     }
-    
+
+    const history = useHistory();
+
+    const handleClick = (pageURL) => {
+        history.push(pageURL);
+    }
+
     return (
         <>
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar-and-search">
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>
-                    <img class="senpaiLogo" src={senpaiLogo} alt=""></img>
-                    <Col> 
-                        <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#events">Events</Nav.Link>
-                        <Nav.Link href="#favorites">Favorites</Nav.Link>
-                        </Nav>
-                    </Col>
+                        <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
                     </Navbar.Collapse>
                     {user ? (
                         <Col className="text-right">
-                            <Button color='inherit' onClick={logout}>Logout</Button>
+                            <Button color='inherit' onClick={() => handleClick('/login')}>Logout</Button>
                         </Col>
                     ) : (
                         <div>
@@ -45,13 +44,7 @@ const Navigation = () => {
                     )
                 }
                 </Navbar>
-                <div className="bg-primary border border-primary navbar-and-search">
-                <Container>
-                    <Col>
-                        <SearchBar />
-                    </Col>
-                </Container>
-                </div>
+                <SearchBar />
         </>
     )
 }
