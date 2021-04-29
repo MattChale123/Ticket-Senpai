@@ -5,6 +5,8 @@ import SeatGeekCard from '../components/SeatGeekCard'
 import StubHubCard from '../components/StubHubCard'
 import TicketMasterCard from '../components/TicketMasterCard'
 import useStubHub from '../hooks/useStubHub'
+import GoogleMaps from '../components/GoogleMaps'
+import usePosition from '../hooks/usePosition'
 
 export default function Prices(props) {
     const location = useLocation()
@@ -12,7 +14,13 @@ export default function Prices(props) {
     const [stubHubInfo, setStubHubInfo] = useState([])
     const stubHub = useStubHub()
     const event = location.state.event
-
+    const  { latitude, longitude } = usePosition()
+    const address = {
+        city: event.venue.city,
+        state: event.venue.state,
+        address: event.venue.address,
+        postal_code: event.venue.postal_code
+    }
 
     useEffect(() => {
         fetchAll()
@@ -57,7 +65,11 @@ export default function Prices(props) {
     }
 
 
-
+    const styling = {
+        border: '2px solid black',
+        margin: '10px',
+        borderRadius: '15px'
+    }
 
     return (
         <Container style={{ textAlign: "center" }}>
@@ -77,17 +89,13 @@ export default function Prices(props) {
                     <TicketMasterCard event={TicketMaster} />
                 </Col>
             </Row>
-            <Row>
+            <Row style={styling}>
                 <Col className="mt-3">
-                    <h1>For Matt</h1>
+                    <h3>Distance to event.</h3>
+                    <h5>Either use current location, or enter origin.</h5>
+                    <p>(Location manuelly filled if accepted)</p>
                     <div>
-                        address: {event.venue.address}
-                        <br/>
-                        city: {event.venue.city}
-                        <br/>
-                        zipcode: {event.venue.postal_code}
-                        <br/>
-                        state: {event.venue.state}
+                        <GoogleMaps eventLatitude={latitude} eventLng={longitude} address={address} />
                     </div>
                 </Col>
             </Row>

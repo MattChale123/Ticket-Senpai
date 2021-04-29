@@ -32,6 +32,13 @@ const Navigation = () => {
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse id='responsive-navbar-nav'>
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
+                    <Col> 
+                        <Nav className="mr-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#events">Events</Nav.Link>
+                        <Nav.Link href="#favorites">Favorites</Nav.Link>
+                        </Nav>
+                    </Col>
                     </Navbar.Collapse>
                     {user ? (
                         <Col className="text-right">
