@@ -7,8 +7,9 @@ export default function SearchPerformerResults() {
     const { param } = useParams()
     const [results, setResults] = useState([])
     const [metaData, setMetaData] = useState([])
-
+    const [previousJumbo, setPreviousJumbo] = useState("")
     let [count, setCount] = useState(1)
+
     const nextPageButton = () => {
         setCount(count + 1)
     }
@@ -16,21 +17,24 @@ export default function SearchPerformerResults() {
         setCount(count - 1)
     }
 
-
+    console.log("SearchPerformerResults rendering")
     useEffect(() => {
         fetchPerformerResults()
     }, [param, count]);
 
     const fetchPerformerResults = () => {
-        fetch(`https://api.seatgeek.com/2/events?q=${param}&per_page=10&page=${String(count)}&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
+        fetch(`https://api.seatgeek.com/2/events?q=${param}&venue.city=${""}&per_page=10&page=${String(count)}&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
             .then((res) => res.json())
             .then((data) => {
                 if (data) {
                     console.log(data)
                     setResults(data.events)
                     setMetaData(data.meta)
-                } if (!data.error) {
-                    console.log()
+                    if ( count === 1) {
+                        setPreviousJumbo(data.events[0].performers[0].name)
+                        console.log(previousJumbo)
+                    } 
+
                 }
                 else {
                     setResults(["No Results Found"])
@@ -46,7 +50,10 @@ export default function SearchPerformerResults() {
                     <Jumbotron className="performerJumbotron">
                         <div className="performerBio">
                             <div className="performerTitle">
-                                {results[0].performers[0].name}
+                                {
+                                    previousJumbo !== results[0].performers[0].name ? previousJumbo : previousJumbo
+                                }
+
                             </div>
                             <div className="performerGenre ">
                                 {results[0].type !== 'concert' ? (
@@ -114,11 +121,11 @@ export default function SearchPerformerResults() {
                     </Col>
                     <Col className="performerResultsPreviousButton">
                         <div>
-                            Page {metaData.page} of {metaData.took}
+                            Page {metaData.page} of {Math.round(metaData.total / metaData.per_page)}
                         </div>
                     </Col>
                     <Col className="performerResultsNextPageButton">
-                        {metaData.page === metaData.took ? (
+                        {metaData.page === Math.round(metaData.total / metaData.per_page) ? (
                             <div></div>
                         ) : (
                             <Button variant="primary" onClick={nextPageButton}>Next Page</Button>

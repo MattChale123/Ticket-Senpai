@@ -16,8 +16,7 @@ export default function SearchBar() {
     };
 
     const handleSubmitPerformer = (e) => {
-        e.preventDefault()
-        history.push(`/search/artist/${searchParam}`)
+        history.push(`/search/performer/${searchParam}`)
         setSearchParam("")
 
     };
