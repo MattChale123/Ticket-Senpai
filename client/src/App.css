@@ -23,6 +23,19 @@
 .searchBar {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.cityForm .input-group .form-control {
+  flex-grow: 1;
+}
+
+.cityForm {
+  display: flex;
+  width: 100%;
 }
 
 .seatGeekLogo{

@@ -45,7 +45,9 @@ export default function SearchBar() {
     }
 
     return (
-        <div className="searchBar mt-3">
+        <div className="bg-dark border border-primary">
+                
+        <div className="searchBar mt-3 ">
             <DropdownButton
                 alignRight
                 title="Search By"
@@ -55,12 +57,11 @@ export default function SearchBar() {
                 <Dropdown.Item eventKey="City">City</Dropdown.Item>
                 <Dropdown.Item eventKey="Performer">Performer</Dropdown.Item>
             </DropdownButton>
-            <div>
                 {
                     searchCityForm && searchDefault ? (
                         <Form onSubmit={handleSubmitCity} className="cityForm">
                             <InputGroup className="mb-3 inputGrp">
-                                <div>
+                                
                                     <FormControl
                                         placeholder="Enter a City"
                                         aria-label="Enter a City"
@@ -68,20 +69,16 @@ export default function SearchBar() {
                                         value={searchParam}
                                         required
                                     />
-                                </div>
-                                <div>
                                     <InputGroup.Append>
                                         <Button type="submit" variant="outline-info">
                                             Search
-                                            </Button>
+                                        </Button>
                                     </InputGroup.Append>
-                                </div>
                             </InputGroup>
                         </Form>
                     ) : (
                         <Form onSubmit={handleSubmitPerformer} className="cityForm">
                             <InputGroup className="mb-3 inputGrp">
-                                <div>
                                     <FormControl
                                         placeholder="Enter a Performer"
                                         aria-label="Enter a Performer"
@@ -89,19 +86,16 @@ export default function SearchBar() {
                                         value={searchParam}
                                         required
                                     />
-                                </div>
-                                <div>
                                     <InputGroup.Append>
                                         <Button type="submit" variant="outline-info">
                                             Search
                                         </Button>
                                     </InputGroup.Append>
-                                </div>
                             </InputGroup>
                         </Form>
                     )
                 }
-            </div>
+        </div>
         </div>
     )
 }
