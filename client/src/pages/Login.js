@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../redux/actions";
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import background from '../components/senpailogopurple.svg'
 
 export default function Login() {
     const [ error, setError ] = useState('')
@@ -46,22 +47,44 @@ export default function Login() {
         color: "red",
         fontWeight: "bold"
       }
+      const styling = {
+        backgroundColor: 'rgba(255, 255, 255, .15)',
+        backdropFilter: 'blur(5px)',
+        color: 'white',
+        flexDirection: 'column',
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left',
+        opacity: '.85',
+        border: '2px solid black',
+        width: '35%'
+    }
     return (
-        <div>
+        <div style={{ 
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: 'noRepeat',
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: '90% 100%',
+          height: '1100px'
+         }}>
             <h1>Login</h1>
-              <Form onSubmit={handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
-                  <Form.Text className="text-muted">
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
+              <div style={styling}>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
+                    <Form.Text className="text-muted">
+                    </Form.Text>
                   </Form.Group>
-                <Button variant="primary" type="submit">Submit</Button>
-              </Form>
+                  <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
+                    </Form.Group>
+                  <Button variant="primary" type="submit">Submit</Button>
+                </Form>
+              </div>
                 {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
         </div>
     )
