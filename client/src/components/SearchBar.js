@@ -7,6 +7,8 @@ export default function SearchBar() {
     const [searchCityForm, setSearchCityForm] = useState(true)
     const [searchPerformerForm, setSearchPerformerForm] = useState(false)
     const [searchParam, setSearchParam] = useState('');
+    const [searchPCParam, setSearchPCParam] = useState('')
+
     const history = useHistory();
 
     const handleSubmitCity = (e) => {
@@ -16,13 +18,21 @@ export default function SearchBar() {
     };
 
     const handleSubmitPerformer = (e) => {
-        history.push(`/search/performer/${searchParam}`)
+        e.preventDefault()
+        history.push({
+            pathname: `/search/performer/${searchParam}}`,
+            state: { PCParam: searchPCParam }
+        })
         setSearchParam("")
+        setSearchPCParam("")
 
     };
 
     const handleChange = (event) => {
         setSearchParam(event.target.value);
+    };
+    const handlePCParamChange = (event) => {
+        setSearchPCParam(event.target.value);
     };
 
     const onChangeCity = (event) => {
@@ -79,12 +89,18 @@ export default function SearchBar() {
                     ) : (
                         <Form onSubmit={handleSubmitPerformer} className="cityForm">
                             <InputGroup className="mb-3 inputGrp">
+                                <FormControl
+                                    placeholder="Enter a Performer or Team"
+                                    aria-label="Enter a Performer or Team"
+                                    onChange={handleChange}
+                                    value={searchParam}
+                                    required
+                                />
                                     <FormControl
-                                        placeholder="Enter a Performer"
-                                        aria-label="Enter a Performer"
-                                        onChange={handleChange}
-                                        value={searchParam}
-                                        required
+                                        placeholder="Enter a City"
+                                        aria-label="Enter a City"
+                                        onChange={handlePCParamChange}
+                                        value={searchPCParam}
                                     />
                                     <InputGroup.Append>
                                         <Button type="submit" variant="outline-info">
