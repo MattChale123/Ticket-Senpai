@@ -53,7 +53,6 @@ export default function SearchPerformerResults() {
                                 {
                                     previousJumbo !== results[0].performers[0].name ? previousJumbo : previousJumbo
                                 }
-
                             </div>
                             <div className="performerGenre ">
                                 {results[0].type !== 'concert' ? (
