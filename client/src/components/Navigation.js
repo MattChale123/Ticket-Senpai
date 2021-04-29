@@ -3,9 +3,10 @@ import { Button, Col, Container, Form, FormControl, Nav, Navbar } from 'react-bo
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { setUser } from '../redux/actions';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
 import './Navigation.css';
-import senpaiLogo from './senpailogopurple.svg'
+import senpaiLogo from './senpailogopurple.svg';
+import senpaiBanner from './senpaiBanner.svg';
 
 const Navigation = () => {
     const user = useSelector((state) => state.user);
@@ -28,18 +29,10 @@ const Navigation = () => {
 
     return (
         <>
-        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar-and-search">
-                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
-                <Navbar.Collapse id='responsive-navbar-nav'>
+        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar">
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
-                    <Col> 
-                        <Nav className="mr-auto">
-                        {/* <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#events">Events</Nav.Link>
-                        <Nav.Link href="#favorites">Favorites</Nav.Link> */}
-                        </Nav>
-                    </Col>
-                    </Navbar.Collapse>
+                        <img onClick={() => handleClick('/')}  className="senpaiBanner" src={senpaiBanner} alt=""></img>
+
                     {user ? (
                         <Col className="text-right">
                             <Button color='inherit' onClick={() => handleClick('/login')}>Logout</Button>
