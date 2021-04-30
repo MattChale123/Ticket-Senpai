@@ -6,7 +6,7 @@ import { setUser } from '../redux/actions';
 import SearchBar from './SearchBar';
 import './Navigation.css';
 import senpaiLogo from './senpailogopurple.svg';
-import senpaiBanner from './senpaiBanner.svg';
+import senpaiBanner from './realSenpaiBanner.svg';
 
 const Navigation = () => {
     const user = useSelector((state) => state.user);

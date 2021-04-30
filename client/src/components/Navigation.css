@@ -25,6 +25,8 @@
     max-width: 100%;
     margin: 0 auto;
     width: 45%;
+    min-width: 315px;
+    cursor: pointer;
 }
 
 .search-bar {
