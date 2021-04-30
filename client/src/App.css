@@ -1,6 +1,7 @@
 .App {
-  background-color: white;
-  /* color: white; */
+  background-color: #343A40 !important;
+  font-family: 'Roboto', sans-serif;
+  color: #FFC0CB;
 }
 
 .home-container {
