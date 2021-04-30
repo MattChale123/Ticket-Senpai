@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/register', async (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.username || !req.body.password|| !req.body.city || !req.body.state) {
     return res.status(400).json({
       error: 'Please include username and password'
     })
@@ -30,7 +30,9 @@ router.post('/register', async (req, res) => {
   const newUser = await models.User.create({
     username: req.body.username,
     password: hash,
-    email: req.body.email
+    email: req.body.email,
+    city: req.body.city,
+    state: req.body.state
   })
   console.log(newUser)
   return res.status(201).json(newUser);
@@ -62,7 +64,14 @@ router.post('/login', async (req, res) => {
 
     delete user.password
 
-  res.json(user.username);
+
+
+  res.json({
+    id: user.id,
+    username: user.username,
+    city: user.city,
+    state:user.state
+  });
 })
 router.get('/logout', (req, res) => {
   req.session.user = null
