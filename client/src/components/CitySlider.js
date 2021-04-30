@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import NoResultsFound from './NoResultsFound'
 import Slider from './Slider'
 
 export default function CitySlider(props) {
@@ -46,7 +47,7 @@ export default function CitySlider(props) {
     return (
         <div className="home-container">
             {events.music.length ===0? (
-                <h2>No results</h2>
+                <NoResultsFound />
             ):(
                 <>
                 <h1 style ={{textAlign:"center"}} >Events in {city}</h1>

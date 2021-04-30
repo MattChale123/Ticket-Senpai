@@ -59,7 +59,7 @@ export default function SearchPerformerCard(props) {
                                 <span style={{ color: 'red', marginBottom: '5px' }}>
                                     {noTicketStr}
                                 </span> :
-                                <Button variant="primary" onClick={handleClick}>Compare Prices</Button>
+                                <Button className="comparePricesBtn" onClick={handleClick}>Compare Prices</Button>
                         }
                     </div>
                 </td>

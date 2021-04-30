@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router'
 import SearchPerformerCard from '../components/SearchPerformerCard'
 import { Button, Col, Image, Jumbotron, Row, Table } from 'react-bootstrap'
+import NoResultsFound from '../components/NoResultsFound'
 
 export default function SearchPerformerResults() {
     const { param } = useParams()
@@ -69,7 +70,7 @@ export default function SearchPerformerResults() {
     return (
         <div>
             { !results.length ?
-                (<h1>No results found</h1>) :
+                (<NoResultsFound />) :
                 (
                     <div className="performerResultsContainer">
                         {(results.length >= 1) ? (
@@ -128,7 +129,7 @@ export default function SearchPerformerResults() {
                                                                 }
                                                             </span>
                                                         ) : (
-                                                            <span>
+                                                            <span style={{color: 'rgb(220, 46, 255)'}}>
                                                                 Upcoming Events in {toUpperCaseCity(PCParam)}: {
                                                                     results.length < 10 ?
                                                                         (results.length)
@@ -162,7 +163,7 @@ export default function SearchPerformerResults() {
                                     <div></div>
                                 ) : (
                                     <div>
-                                        <Button variant="primary" onClick={previousPageButton}>Previous Page</Button>
+                                        <Button className="previousPageBtn" onClick={previousPageButton}>Previous Page</Button>
                                     </div>
                                 )}
                             </Col>
@@ -185,7 +186,7 @@ export default function SearchPerformerResults() {
                                         (metaData.page === Math.round(metaData.total / metaData.per_page)) ? (
                                             <div></div>
                                         ) : (
-                                            <Button variant="primary" onClick={nextPageButton}>Next Page</Button>
+                                            <Button className="nextPageBtn" onClick={nextPageButton}>Next Page</Button>
                                         )
 
                                     ) :
