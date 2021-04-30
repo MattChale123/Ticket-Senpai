@@ -17,6 +17,7 @@ const Navigation = () => {
             .then(data => {
                 if (data.success) {
                     dispatch(setUser(null))
+                    history.push('/')
                 }
             })
     }
@@ -34,9 +35,9 @@ const Navigation = () => {
                         <img onClick={() => handleClick('/')}  className="senpaiBanner" src={senpaiBanner} alt=""></img>
 
                     {user ? (
-                        <Col className="text-right">
-                            <Button color='inherit' onClick={() => handleClick('/login')}>Logout</Button>
-                        </Col>
+                        <div className="text-right">
+                            <Button color='inherit' onClick={logout}>Logout</Button>
+                        </div>
                     ) : (
                         <div>
                             <Button color='inherit' as={Link} to='/login'>Login</Button>

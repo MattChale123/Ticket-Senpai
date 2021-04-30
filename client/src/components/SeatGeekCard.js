@@ -8,9 +8,9 @@ export default function SeatGeekCard(props) {
 
     return (
         <div className="mt-3">
-            <Card style={{ width: '20rem' }}>
+            <Card style={{ width: '20rem' }} className="card-background">
                 <a href={url}><Card.Img variant="top" src={`${performers[0].image}`} /></a>
-                <Card.Body>
+                <Card.Body className="card-background">
                     <Card.Title>{title}</Card.Title>
                     <hr></hr>
                     <a href={`https://google.com/maps/search/${venue.name_v2} ${venue.city} ${venue.country}`} target="_blank" rel="noreferrer">

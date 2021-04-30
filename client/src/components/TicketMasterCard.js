@@ -7,9 +7,9 @@ export default function TicketMasterCard(props) {
         <div className="mt-3">
             {
                 !props.event?.id ? (
-                    <Card style={{ width: '20rem' }}>
+                    <Card style={{ width: '20rem' }} className="card-background">
                         <Card.Img variant="top" style={{ height: "238px", width: "318px" }} src={"https://www.livenation.com/ticketmaster/img/ticketmaster-banner2500w.png"} />
-                        <Card.Body>
+                        <Card.Body className="card-background">
                             <Card.Title>No matching event found</Card.Title>
                             <hr></hr>
                             <span> NA</span>
@@ -24,9 +24,9 @@ export default function TicketMasterCard(props) {
                 ) :
                     (
 
-                        <Card style={{ width: '20rem' }}>
+                        <Card style={{ width: '20rem' }} className="card-background">
                             <a href={props.event.url}><Card.Img variant="top" src={props.event.images[2].url} /></a>
-                            <Card.Body>
+                            <Card.Body className="card-background">
                                 <Card.Title>{props.event.name}</Card.Title>
                                 <hr></hr>
                                 <a href={`https://google.com/maps/search/${props.event._embedded.venues[0].name} ${props.event._embedded.venues[0].city.name}`} target="_blank" rel="noreferrer">

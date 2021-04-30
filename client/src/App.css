@@ -4,6 +4,11 @@
   color: #FFC0CB;
 }
 
+* {
+  font-family: 'Roboto', sans-serif;
+  color: #FFC0CB; 
+}
+
 .home-container {
   background-color: #343A40;
 }
@@ -209,6 +214,11 @@
   -webkit-user-drag: none;
 }
 
+.card-background {
+  background-color: black;
+  min-height: 270px !important;
+}
+
 div{
   display: block;
 }
@@ -390,9 +400,56 @@ tr.performerResultsTableRow:hover{
 
 
 /* Footer / copyright */
+.prices-header {
+  font-family: 'Roboto', sans-serif;
+}
+
+.stubhub-card-background {
+  background-color: black !important;
+}
+
+.card-background {
+  background-color: black !important;
+}
+
+.spacer {
+  height: 75px;
+}
+
+.maps-container{
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.maps-label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.location-disclaimer {
+  font-style: italic;
+}
+
 .copyright-container {
-  height: 50px;
+  height: 150px;
   background-color: #343A40;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.map-row {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  text-align: center;
 }
 
 .copyright-text {
@@ -401,5 +458,6 @@ tr.performerResultsTableRow:hover{
   color: #FFC0CB; 
   padding-top: 20px;
 }
+
 
 
