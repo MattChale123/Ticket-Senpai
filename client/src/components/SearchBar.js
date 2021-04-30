@@ -56,7 +56,7 @@ export default function SearchBar() {
 
     return (
         <div className="bg-dark border border-dark">
-        <div className="searchBar mt-3 ">
+        <div className="searchBar mt-3">
             <DropdownButton
                 alignRight
                 title="Search By"

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Copyright from '../components/Copyright';
 import Slider from '../components/Slider';
 
 export default function Home() {
@@ -39,13 +40,12 @@ export default function Home() {
         })
     }
     return (
-        <div>
+        <div className="home-container">
             {/* <div>{events.music[0].title}</div> */}
             <Slider events = {events.music} title= "Concert"/>
             <Slider events = {events.sports} title= "Sports"/>
             <Slider events = {events.comedy} title= "Comedy"/>
             <Slider events = {events.theater} title= "Theater"/>
-
         </div>
     )
 }

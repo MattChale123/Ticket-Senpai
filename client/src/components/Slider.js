@@ -3,6 +3,7 @@ import SliderCard from './SliderCard';
 export default function Slider(props) {
 
     return (
+        <div className="slider-border">
         <div className="separator">
             <h2 className="separator-title twice">{props.title}</h2>
             <div>
@@ -18,6 +19,7 @@ export default function Slider(props) {
                 </div>
                 <hr className="line" />
             </div>
+        </div>
         </div>
     )
 }

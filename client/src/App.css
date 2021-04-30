@@ -3,6 +3,10 @@
   /* color: white; */
 }
 
+.home-container {
+  background-color: #343A40;
+}
+
 .home_img{
   height: 150px;
   width: 150px;
@@ -27,7 +31,8 @@
   width: 500px;
   max-width: 100%;
   margin: 0 auto;
-  padding-bottom: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .cityForm .input-group .form-control {
@@ -49,10 +54,6 @@
 }
 .ticketmasterLogo{
   height: 90px;
-}
-
-.copyright {
-  font-size: 11px;
 }
 
 /* slider */
@@ -108,16 +109,25 @@
   transition: .3s ease-in-out;
 }
 
+.slider-border {
+  border: solid;
+  border-color: #6853B7;
+  border-width: thin;
+}
+
 .separator-title {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  /* font-weight: bold; */
   text-transform: uppercase;
   color: #FFC0CB;
   display: flex;
   justify-content: center;
+  padding-top: 20px;
 }
 
 .card-event-title {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: larger;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -140,11 +150,14 @@
 }
 
 .card-content-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: larger;
+  font-weight: bolder;
   text-align: center;
-  font-weight: 700;
 }
 
 .card-content-footer{
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   font-weight: 700;
 }
@@ -296,4 +309,14 @@ tr.performerResultsTableRow:hover{
   justify-content: center;
 }
 
+.copyright-container {
+  height: 50px;
+  background-color: #343A40;
+}
 
+.copyright-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #FFC0CB; 
+  padding-top: 20px;
+}

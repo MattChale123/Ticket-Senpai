@@ -12,6 +12,7 @@ import SearchCityResults from './pages/SearchCityResults';
 import SearchPerformerResults from './pages/SearchPerformerResults';
 import Prices from './pages/Prices';
 import GoogleMaps from './components/GoogleMaps'
+import Copyright from './components/Copyright';
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <GoogleMaps />
         </Route>
       </Switch>
+      <Copyright />
     </div>
   );
 }
