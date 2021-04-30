@@ -46,7 +46,6 @@ export default function Home() {
             <Slider events = {events.sports} title= "Sports"/>
             <Slider events = {events.comedy} title= "Comedy"/>
             <Slider events = {events.theater} title= "Theater"/>
-            <Copyright />
         </div>
     )
 }
