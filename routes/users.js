@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 router.post('/register', async (req, res) => {
   if (!req.body.username || !req.body.password|| !req.body.city || !req.body.state) {
     return res.status(400).json({
-      error: 'Please include username and password'
+      error: 'Please include username, password, city, and state'
     })
   }
 
@@ -77,7 +77,7 @@ router.get('/logout', (req, res) => {
   req.session.user = null
 
   res.json({
-    success: 'LoL'
+    success: 'Logged out successfully.'
   })
 })
 router.get('/current', (req, res) => {
