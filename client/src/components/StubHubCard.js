@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import StubHubLogo from '../img/stub-hub-logo.png';
 import moment from 'moment'
+import '.././App.css';
 
 export default function StubHubCard(props) {
     return (
@@ -9,17 +10,16 @@ export default function StubHubCard(props) {
             {
                 !props.event.id ? (
                     <div className="mt-3">
-                    <Card style={{ width: '20rem' }}>
-
+                    <Card style={{ width: '20rem' }} className="stubhub-card-background">
                         <Card.Img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo}  />
-                        <Card.Body>
+                        <Card.Body className="card-background">
                             <Card.Title>No matching event found</Card.Title>
                             <hr></hr>
                             <span>NA</span>
                             <Card.Text>
                                 Price of Tickets:
                             </Card.Text>
-                            <span style={{ color: 'red' }}>
+                            <span style={{ color: 'red'}}>
                                 No tickets currently available from this vendor.
                             </span>
                         </Card.Body>
@@ -28,11 +28,11 @@ export default function StubHubCard(props) {
                 ) :
                 (
                 <div className="mt-3">
-                <Card style={{ width: '20rem' }}>
+                <Card style={{ width: '20rem' }} className="stubhub-card-background">
                       <a href={`https://www.stubhub.com//${props.event.webURI}`}>
                            <Card.Img src={StubHubLogo} alt='StubHub logo' style={{height: '238px', width: '318px'}} />
                         </a>
-                    <Card.Body>
+                    <Card.Body className="card-background">
                         <Card.Title>{props.event.name}</Card.Title>
                         <hr></hr>
                         <a href={`https://google.com/maps/search/${props.event.venue.name} ${props.event.venue.city}`} target="_blank" rel="noreferrer">

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row, Table } from 'react-bootstrap'
-import { useLocation } from 'react-router-dom'
-import SeatGeekCard from '../components/SeatGeekCard'
-import StubHubCard from '../components/StubHubCard'
-import TicketMasterCard from '../components/TicketMasterCard'
-import useStubHub from '../hooks/useStubHub'
-import GoogleMaps from '../components/GoogleMaps'
-import usePosition from '../hooks/usePosition'
-import moment from 'moment'
-import { useMediaQuery } from 'react-responsive'
+import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import TicketMasterCard from '../components/TicketMasterCard';
+import SeatGeekCard from '../components/SeatGeekCard';
+import StubHubCard from '../components/StubHubCard';
+import React, { useEffect, useState } from 'react';
+import GoogleMaps from '../components/GoogleMaps';
+import { useMediaQuery } from 'react-responsive';
+import { useLocation } from 'react-router-dom';
+import usePosition from '../hooks/usePosition';
+import useStubHub from '../hooks/useStubHub';
+import moment from 'moment';
+import '.././App.css';
 
 export default function Prices(props) {
     const location = useLocation()
@@ -80,16 +81,18 @@ export default function Prices(props) {
 
 
     const styling = {
-        border: '2px solid black',
-        margin: '10px',
-        borderRadius: '15px'
+        border: '2px solid #FFC0CB',
+        margin: '10px auto',
+        borderRadius: '15px',
+        width: '50%',
+        alignItems: 'center'
     }
 
     return (
         <Container style={{ textAlign: "center" }}>
             <Row >
                 <Col className="mt-3">
-                    <h1> Prices for {event.title} in {event.venue.city}, {event.venue.state}</h1>
+                    <h1 className="prices-header"> Prices for {event.title} in {event.venue.city}, {event.venue.state}:</h1>
                 </Col>
             </Row>
             {isDesktopOrLaptop &&
@@ -200,11 +203,13 @@ export default function Prices(props) {
                 </>
             }
 
-            <Row style={styling}>
+            <div className="spacer"></div>
+
+            <Row style={styling} className="map-row">
                 <Col className="mt-3">
-                    <h3>Distance to event.</h3>
-                    <h5>Either use current location, or enter origin.</h5>
-                    <p>(Location automatically filled if accepted)</p>
+                    <h3>Distance to event:</h3>
+                    <h5>Use current location or enter origin address.</h5>
+                    <p className="location-disclaimer">(Location automatically filled if accepted)</p>
                     <div>
                         <GoogleMaps eventLatitude={latitude} eventLng={longitude} address={address} />
                     </div>
