@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
 import { Loader } from "@googlemaps/js-api-loader"
+import ".././App.css";
 
 const loader = new Loader({
     apiKey: 'AIzaSyBxCFPMNQ1YqokuJM8pwSnWnqNByNzEPl0',
@@ -30,7 +31,7 @@ export default function GoogleMaps(props) {
         .then(data => {
             console.log(data)
             if (data.rows[0].elements[0].status === "NOT_FOUND" ) {
-                setError('Invalid location. Please set origin to a valid address')
+                setError('Invalid location. Please set origin to a valid address.')
             } else {
                 setResults(data.rows)
             }
@@ -61,10 +62,12 @@ export default function GoogleMaps(props) {
       }
 
     return (
-        <div>
+        <div className="maps-container">
             <Form onSubmit={handleSubmit} style={styling}>
+                <label className="maps-label">User address:</label>
                 <Form.Control type="text" placeholder="123 Main St, State, GA 12345" onChange={handleChange} value={form.origin} name='origin'/>
                     <br />
+                <label className="maps-label">Venue address:</label>
                 <Form.Control type="text" placeholder="Destination" onChange={handleChange} value={form.destination} name='destination'/>
                     <br />
                 <Button variant="primary" type="submit">Submit</Button>
@@ -79,7 +82,7 @@ export default function GoogleMaps(props) {
                     </Card>
                 )
             })}
-            {(error === 'Invalid location. Please set origin to a valid address') && <p style={errorStyling}>*{error}*</p>}
+            {(error === 'Invalid location. Please set origin to a valid address.') && <p style={errorStyling}>*{error}*</p>}
         </div>
     )
 }
