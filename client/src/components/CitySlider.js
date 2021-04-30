@@ -23,7 +23,7 @@ export default function CitySlider(props) {
             "theater"//classical
         ]
         const promiseEvents = types.map(type => {
-            return fetch(`https://api.seatgeek.com/2/events?page=1&venue.city=${props.city}&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
+            return fetch(`https://api.seatgeek.com/2/events?page=1&per_page=20&venue.city=${props.city}&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
                 .then(res => res.json())
                 .then(data => {
                     return data.events
@@ -50,10 +50,11 @@ export default function CitySlider(props) {
             ):(
                 <>
                 <h1 style ={{textAlign:"center"}} >Events in {city}</h1>
-                <Slider events={events.music} title="Concerts" />
-                <Slider events={events.sports} title="Sports" />
-                <Slider events={events.comedy} title="Comedy" />
-                <Slider events={events.theater} title="Theater" />
+            
+                <Slider events={events.music} title = "Concerts"/>
+                <Slider events={events.sports} title= "Sports" />
+                <Slider events={events.comedy} title = "Comedy"/>
+                <Slider events={events.theater} title ="Theater" />
                 </>
             )}
         </div>
