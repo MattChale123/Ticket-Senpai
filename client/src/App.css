@@ -9,6 +9,16 @@
   color: #FFC0CB; 
 }
 
+.login-font {
+  font-family: 'Roboto', sans-serif;
+}
+
+.home-city-header {
+  padding-bottom: 1.5%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
 .home-container {
   background-color: #343A40;
 }
@@ -41,25 +51,190 @@
   padding-bottom: 40px;
 }
 
+/* .searchBarBtn {
+  border: var(--clr-neon-purple) 0.125em solid !important;
+  border-radius: 0.25em !important;
+} */
+
+/* color: var(--clr-neon-purple) !important;
+display: inline-block !important;
+cursor: pointer !important;
+text-decoration: none !important;
+border: var(--clr-neon-purple) 0.125em solid !important;
+border-radius: 0.25em !important;
+background: var(--clr-bg) !important;
+padding: 0.25em 1em !important;
+text-shadow: 
+  0 0 0.125em hsl(0 0% 100% / 0.5), 
+  0 0 0.45em currentColor;
+box-shadow: inset 0 0 0.5em 0 var(--clr-neon-purple), 
+0 0 0.5em 0 var(--clr-neon-purple);
+position: relative; */
+
+
+/* neon button start */
+:root {
+  /* brighter pink...doesn't match the banner color of pink but looks pretty good... */
+  /* --clr-neon: hsl(317 100% 54%); */
+  --clr-neon-pink: hsl(327 72% 50%);
+  --clr-neon-purple: hsl(253 41% 52%);
+  --clr-bg: hsl(323 21% 16%);
+}
+
+/* pink neon button */
+.neon-button-pink {
+  color: var(--clr-neon-pink) !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  border: var(--clr-neon-pink) 0.125em solid !important;
+  border-radius: 0.25em !important;
+  background: var(--clr-bg) !important;
+  padding: 0.25em 1em !important;
+  text-shadow: 
+    0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.45em currentColor ;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon-pink), 
+  0 0 0.5em 0 var(--clr-neon-pink);
+  position: relative;
+}
+
+/* neon button shadow */ 
+/* .neon-button::before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  background: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7; 
+} */
+
+.neon-button-pink::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon-pink);
+  opacity: 0;
+  background-color: var(--clr-neon-pink) !important;
+  z-index: -1 !important;
+  transition: opacity 100ms linear !important;
+}
+
+.neon-button-pink:hover,
+.neon-button-pink:focus {
+  color: var(--clr-bg) !important;
+  text-shadow: none !important;
+  z-index: 1;
+}
+
+.neon-button-pink:hover::before,
+.neon-button-pink:focus::before {
+  opacity: 1 !important;
+}
+.neon-button-pink:hover::after,
+.neon-button-pink:focus::after {
+  opacity: 1 !important;
+}
+
+/* purple neon button */
+.neon-button-purple {
+  color: var(--clr-neon-purple) !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  border: var(--clr-neon-purple) 0.125em solid !important;
+  border-radius: 0.25em !important;
+  background: var(--clr-bg) !important;
+  padding: 0.25em 1em !important;
+  text-shadow: 
+    0 0 0.125em hsl(0 0% 100% / 0.5), 
+    0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 var(--clr-neon-purple), 
+  0 0 0.5em 0 var(--clr-neon-purple);
+  position: relative;
+}
+
+/* neon button shadow */ 
+/* .neon-button::before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  background: var(--clr-neon);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7; 
+} */
+
+.neon-button-purple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon-purple);
+  opacity: 0;
+  background-color: var(--clr-neon-purple) !important;
+  z-index: -1 !important;
+  transition: opacity 100ms linear !important;
+}
+
+.neon-button-purple:hover,
+.neon-button-purple:focus {
+  color: var(--clr-bg) !important;
+  text-shadow: none !important;
+  z-index: 1;
+}
+
+.neon-button-purple:hover::before,
+.neon-button-purple:focus::before {
+  opacity: 1 !important;
+}
+.neon-button-purple:hover::after,
+.neon-button-purple:focus::after {
+  opacity: 1 !important;
+}
+
+/* neon button end */
 .dropdown-toggle.btn.btn-primary{
-  background-color: rgb(79, 62, 122);
-  border-color: rgb(79, 62, 122);
-  color: #FFC0CB;
+  background-color: rgb(79, 62, 122) !important;
+  border-color: rgb(79, 62, 122) !important;
+  color: #FFC0CB !important;
 }
 .dropdown-toggle.btn.btn-primary:active{
-  background-color: rgb(79, 62, 122);
-  border-color: rgb(79, 62, 122);
-  color: #FFC0CB;
+  background-color: rgb(79, 62, 122) !important;
+  border-color: rgb(79, 62, 122) !important;
+  color: #FFC0CB !important;
 }
 .btn-primary:not(:disabled):not(.disabled).active{
-  background-color: rgb(79, 62, 122);
-  border-color: rgb(79, 62, 122);
-  color: #FFC0CB;
+  background-color: rgb(79, 62, 122) !important;
+  border-color: rgb(79, 62, 122) !important;
+  color: #FFC0CB !important;
 }
+.dropdown-menu.show.dropdown-menu-right{
+  max-height: 300px;
+  overflow-y:auto;
+}
+.bg-dark.border.border-dark{
+  min-height: 300px;
+}
+
 .searchBarBtn:active{
-  background-color: rgb(79, 62, 122);
-  border-color: rgb(79, 62, 122);
-  color: #FFC0CB;
+  background-color: rgb(79, 62, 122) !important;
+  border-color: rgb(79, 62, 122) !important;
+  color: #FFC0CB !important;
 }
 
 .cityForm .input-group .form-control {
@@ -81,6 +256,21 @@
 }
 .ticketmasterLogo{
   height: 90px;
+}
+.showNoResults:before {
+    content: 'No results were found on your search.';
+    opacity: -15;
+    animation: 20s fadeIn;
+    animation-fill-mode: forwards;
+    transition: opacity 20s;
+  }
+@keyframes fadeIn {
+  from {
+    opacity: -15;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* slider */
@@ -122,8 +312,6 @@
   border-radius: 8px;
   color: red;
   text-decoration: none;
-  background-color:black  !important;
-  box-shadow: 0px 0px 8px 0px #000000
 }
 
 .card2 img {
@@ -135,6 +323,7 @@
   height: 300px;
   object-fit: cover;
 }
+
 .card-content, .card-image {
   border-radius: 8px;
   transform: scale(.9);
@@ -143,9 +332,28 @@
 
 .slider-border {
   border: solid;
+  border-radius: 10px;
   border-color: #6853B7;
   border-width: thin;
+  padding-bottom: 2.25%; 
+  margin-top: -1px;
+  margin-bottom: -1px;
+  z-index: 1;
 }
+
+/* neon slider-border (option 2) */
+/* .slider-border {
+  border: solid;
+  border-radius: 10px;
+  border-color: var(--clr-neon-purple);
+  box-shadow: inset 0 0 0.25em 0 var(--clr-neon-purple), 
+  0 0 0.25em 0 var(--clr-neon-purple);
+  border-width: thin;
+  padding-bottom: 2.25%; 
+  margin-top: -1px;
+  margin-bottom: -1px;
+} */
+
 
 .separator-title {
   font-family: 'Roboto', sans-serif;
@@ -154,7 +362,7 @@
   color: #FFC0CB;
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 0.5%;
 }
 
 .card-event-title {
@@ -283,7 +491,7 @@ div{
 .performerResultsRow.row, .performerResultsTableTitle{
   max-width: 100%;
   margin: auto;
-  color: #FFC0CB;
+  color: #FFC0CB !important;
 }
 .performerResultsTable.table{
   max-width: 100%;
@@ -480,5 +688,178 @@ img.card-img-top {
   padding-top: 20px;
 }
 
+/* Search Bar Media queries */
+@media screen and (max-width: 10000px) {
+  .searchBarBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .searchBar.mt-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+  .searchPerformer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .performerInput{
+    margin-bottom: 10px;
+    min-width: 300px;
+  }
+  div.input-group-append{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .mb-3.inputGrp.input-group{
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .citySearchInput{
+    min-width: 300px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .performerInput{
+    margin-bottom: 10px;
+    min-width: 300px;
+  }
+  .searchBar.mt-3{
+    margin-bottom: 30px;
+  }
+
+}
+
+/* Performer Results media queries */
+@media screen and (max-width: 800px) {
+  .performerJumbotron{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 400px;
+  }
+  .performerBio{
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .performerImg{
+    margin: 0;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .performerTitle{
+    font-size: 38px;
+  }
+
+}
+
+@media screen and (max-width: 660px) {
+  .upcomingEvents{
+    font-size: 33px;
+  }
+
+}
 
 
+@media screen and (max-width: 620px) {
+
+  .upcomingEvents{
+    font-size: 40px;
+    border-top: 0px;
+    text-align: center;
+  }
+  .performerResultsTableInfo{
+    margin: 0px;
+  }
+
+  .performerEventDate, .performerEventTime {
+    margin: 0px;
+  }
+
+  .performerEventTime{
+    margin-left: 25px;
+  }
+  .performerResultsTableRow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .td1{
+    min-width: 100%;
+
+  }
+  .eventsTitleFiller{
+    display: none;
+  }
+
+  td.td1{
+    min-width: 100%;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  }
+  td.td2{
+    min-width: 100%;
+    border: 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eventDateTIme{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .upcomingEvents{
+    font-size: 30px;
+    border-top: 0px;
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  .performerBio{
+    margin-top: 0px !important;
+  }
+  .performerTitle{
+    font-size: 30px;
+  }
+  .performerGenre{
+    font-size: 15px;
+  }
+  img.performerImg{
+    height: 200px !important;
+  }
+
+}
+
+@media screen and (max-width: 450px){
+  .pageNumber{
+    font-size: 12px !important;
+    text-align: center;
+  }
+  .previousPageBtn.btn, .nextPageBtn.btn{
+    font-size: 12px;
+  }
+}

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
 import { DropdownButton, Dropdown, Form, InputGroup, Button, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import React, { useState } from 'react';
+import '.././App.css';
 
 export default function SearchBar() {
     const [searchDefault, setSearchDefault] = useState(true)
@@ -21,7 +22,7 @@ export default function SearchBar() {
              }
         })
         setSearchParam("")
-        console.log(selectState)
+        setSelectState('Select State')
     };
     const handleSubmitPerformer = (e) => {
         e.preventDefault()
@@ -71,6 +72,8 @@ export default function SearchBar() {
     return (
         <div className="bg-dark border border-dark">
             <div className="searchBar mt-3">
+                <div>
+
                 <DropdownButton
                     className="searchBarBtn"
                     title="Search By"
@@ -90,6 +93,7 @@ export default function SearchBar() {
                                     aria-label="Enter a City"
                                     onChange={handleChange}
                                     value={searchParam}
+                                    className="citySearchInput"
                                     required
                                 />
                                 <DropdownButton
@@ -154,7 +158,7 @@ export default function SearchBar() {
                                     <Dropdown.Item eventKey="WY">Wyoming</Dropdown.Item>
                                 </DropdownButton>
                                 <InputGroup.Append>
-                                    <Button type="submit" variant="outline-info">
+                                    <Button type="submit" variant="outline-info" className="neon-button-pink">
                                         Search
                                         </Button>
                                 </InputGroup.Append>
@@ -162,7 +166,9 @@ export default function SearchBar() {
                         </Form>
                     ) : (
                         <Form onSubmit={handleSubmitPerformer} className="cityForm">
-                            <InputGroup className="mb-3 inputGrp">
+                            <InputGroup className="mb-3 inputGrp searchPerformer">
+                                <div className="searchPerformer">
+                                <div className="performerInput">
                                 <FormControl
                                     placeholder="Enter a Performer or Team"
                                     aria-label="Enter a Performer or Team"
@@ -170,21 +176,26 @@ export default function SearchBar() {
                                     value={searchParam}
                                     required
                                 />
+                                </div>
+                                <div className="performerInput">
                                 <FormControl
                                     placeholder="Enter a City"
                                     aria-label="Enter a City"
                                     onChange={handlePCParamChange}
                                     value={searchPCParam}
                                 />
-                                <InputGroup.Append>
-                                    <Button type="submit" variant="outline-info">
+                                <InputGroup.Append className="mt-3">
+                                    <Button type="submit" variant="outline-info" className="neon-button-pink">
                                         Search
-                                        </Button>
+                                    </Button>
                                 </InputGroup.Append>
+                                </div>
+                                </div>
                             </InputGroup>
                         </Form>
                     )
                 }
+                </div>
             </div>
         </div>
     )

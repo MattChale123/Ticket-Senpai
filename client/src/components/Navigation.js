@@ -33,17 +33,18 @@ const Navigation = () => {
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar">
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
                         <img onClick={() => handleClick('/')}  className="senpaiBanner" src={senpaiBanner} alt=""></img>
-
+                        <div className="mb-3">
                     {user ? (
-                        <div className="text-right">
-                            <Button color='inherit' onClick={logout}>Logout</Button>
+                        <div>
+                            <Button className="neon-button-pink" color='inherit' onClick={logout}>Logout</Button>
                         </div>
                     ) : (
                         <div>
-                            <Button color='inherit' as={Link} to='/login'>Login</Button>
+                            <Button className="neon-button-pink" color='inherit' as={Link} to='/login'>Login</Button>
                         </div>
                     )
                 }
+                        </div>
                 </Navbar>
                 <SearchBar />
         </>

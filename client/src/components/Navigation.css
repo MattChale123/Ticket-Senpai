@@ -25,15 +25,26 @@
     max-width: 100%;
     margin: 0 auto;
     width: 45%;
-    min-width: 315px;
+    min-width: 330px;
     cursor: pointer;
 }
 
-.search-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    min-width: 600px;
-  }
+
+
+/* Media queries for navbar */ 
+
+@media screen and (max-width: 560px) {
+    .senpaiLogo{
+        display: none;
+    }
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        height: 22vh !important;
+    }
+}
+
+
+
+
 
