@@ -112,7 +112,7 @@ export default function SearchPerformerResults() {
                             <Table className="performerResultsTable">
                                 <thead>
                                     <tr className="performerResultsTableTitle">
-                                        <td>
+                                        <td className="performerResultsTableTD">
                                             <div className="upcomingEvents">
                                                 {(results.length >= 1) ? (
                                                     !results[0].performers[0].has_upcoming_events ?
@@ -143,7 +143,7 @@ export default function SearchPerformerResults() {
                                                 )}
                                             </div>
                                         </td>
-                                        <td>
+                                        <td className="eventsTitleFiller">
                                             <div></div>
                                         </td>
                                     </tr>
@@ -163,7 +163,7 @@ export default function SearchPerformerResults() {
                                     <div></div>
                                 ) : (
                                     <div>
-                                        <Button className="previousPageBtn" onClick={previousPageButton}>Previous Page</Button>
+                                        <Button className="previousPageBtn" onClick={previousPageButton}>Prev. Page</Button>
                                     </div>
                                 )}
                             </Col>
@@ -171,7 +171,7 @@ export default function SearchPerformerResults() {
                                 {
                                     results.length >= 10 ?
                                         (
-                                            <div>
+                                            <div className="pageNumber">
                                                 Page {metaData.page} of {Math.round(metaData.total / metaData.per_page)}
                                             </div>
                                         ) :

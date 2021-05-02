@@ -33,9 +33,9 @@ const Navigation = () => {
         <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark" className="navbar">
                         <img onClick={() => handleClick('/')}  className="senpaiLogo" src={senpaiLogo} alt=""></img>
                         <img onClick={() => handleClick('/')}  className="senpaiBanner" src={senpaiBanner} alt=""></img>
-
+                        <div className="mb-3">
                     {user ? (
-                        <div className="text-right">
+                        <div>
                             <Button className="neon-button-pink" color='inherit' onClick={logout}>Logout</Button>
                         </div>
                     ) : (
@@ -44,6 +44,7 @@ const Navigation = () => {
                         </div>
                     )
                 }
+                        </div>
                 </Navbar>
                 <SearchBar />
         </>
