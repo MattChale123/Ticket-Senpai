@@ -16,7 +16,8 @@ export default function SearchBar() {
         history.push({
             pathname: `/search/city/${searchParam}`,
             state: { 
-                SelectCityState: selectState    
+                state: selectState,
+                city: searchParam    
              }
         })
         setSearchParam("")
