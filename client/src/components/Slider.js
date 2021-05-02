@@ -21,6 +21,7 @@ SwiperCore.use([Pagination, Navigation]);
 
 export default function Slider(props) {
     return (
+        <div className="slider-border">
         <div className= "mt-3">
             <hr className="line"/>
             <h2 className="separator-title twice">{props.title}</h2>
@@ -82,7 +83,8 @@ export default function Slider(props) {
                     })
                 }
             </Swiper>
-        </div >
+        </div>
+        </div>
     )
 }
 

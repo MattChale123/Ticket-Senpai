@@ -42,7 +42,7 @@ export default function TicketMasterCard(props) {
                                 {
                                     props.event.priceRanges == null ?
                                         <span style={{ color: 'red' }}>
-                                            No tickets currently available from this Vendor
+                                            No tickets currently available from this Vendor.
                                         </span> :
 
                                         <div >
