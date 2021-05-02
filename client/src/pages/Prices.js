@@ -2,7 +2,7 @@ import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import TicketMasterCard from '../components/TicketMasterCard';
 import SeatGeekCard from '../components/SeatGeekCard';
 import StubHubCard from '../components/StubHubCard';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, getState } from 'react';
 import GoogleMaps from '../components/GoogleMaps';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
@@ -10,12 +10,14 @@ import usePosition from '../hooks/usePosition';
 import useStubHub from '../hooks/useStubHub';
 import moment from 'moment';
 import '.././App.css';
+import { useSelector } from 'react-redux';
+import NotLoggedInToStubHubCard from '../components/NotLoggedInToStubHubCard';
 
 export default function Prices(props) {
     const location = useLocation()
     const [TicketMaster, setTicketMaster] = useState([])
     const [stubHubInfo, setStubHubInfo] = useState([])
-    const stubHub = useStubHub()
+    const stubHubAPI = useStubHub()
     const event = location.state.event
     const { latitude, longitude } = usePosition()
     const address = {
@@ -33,13 +35,33 @@ export default function Prices(props) {
         query: '(max-device-width: 1224px)'
     })
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
-
-
+    const stubHubUser = useSelector((state) => state.stubHub);
 
 
     useEffect(() => {
         fetchAll()
     }, [])
+
+
+    const fetchStubHub = () => {
+        (!stubHubUser ? 
+            setStubHubInfo(["noStubHubUser"]) :
+            (
+                stubHubAPI.searchEvents(event.venue.city, event.title.replace(/ *\([^)]*\) */g, ""))
+                    .then(data => {
+                        if (data.numFound === 0) {
+                            setStubHubInfo(data)
+                        }
+                        else {
+                            setStubHubInfo(data.events[0])
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        return null
+                    })
+            )) 
+    }
 
     const fetchAll = () => {
         fetch(`https://app.ticketmaster.com/discovery/v2/events.json?city=${event.venue.city}&size=1&keyword=${event.title.replace(/ *\([^)]*\) */g, "")}&apikey=vaxX0RePwNx8nBk5VVUekQWZP9JFsD5e`)
@@ -62,21 +84,7 @@ export default function Prices(props) {
                 return null
             })
 
-
-
-        stubHub.searchEvents(event.venue.city, event.title.replace(/ *\([^)]*\) */g, ""))
-            .then(data => {
-                if (data.numFound === 0) {
-                    setStubHubInfo(data)
-                }
-                else {
-                    setStubHubInfo(data.events[0])
-                }
-            })
-            .catch(error => {
-                console.log(error)
-                return null
-            })
+            fetchStubHub()
     }
 
 
@@ -99,19 +107,28 @@ export default function Prices(props) {
                 <>
                     <Row>
                         <Col sm={4}>
+                            <div className="pricesCard">
                             <SeatGeekCard event={event} />
+                            </div>
                         </Col>
                         <Col sm={4}>
-                            <StubHubCard event={stubHubInfo} />
+                            <div className="pricesCard">
+                            {
+                                stubHubInfo[0] === "noStubHubUser" ? <NotLoggedInToStubHubCard /> :
+                                <StubHubCard event={stubHubInfo}/>
+                            }
+                            </div>
                         </Col>
                         <Col sm={4}>
-                            <TicketMasterCard event={TicketMaster} />
+                            <div className="pricesCard">
+                            <TicketMasterCard event={TicketMaster}  />
+                            </div>
                         </Col>
                     </Row>
                 </>
             }
             {isTabletOrMobileDevice &&
-                <>
+                <div>
                     <Table  variant="dark">
                         <thead>
                             <tr>
@@ -156,25 +173,31 @@ export default function Prices(props) {
                                     </tr>
                                     <tr>
                                         <td>StubHub</td>
-                                        {!stubHubInfo.id ? (
-                                            <td> No tickets currently available from this vendor.</td>
-                                        ) : (
-                                            <>
-                                                <td>
-                                                    <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} variant="success">${Math.round(stubHubInfo.ticketInfo.minListPrice)}</Button>
-                                                </td>
-                                                <td>
-                                                    <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} name="averagePrice" variant="primary">${
-                                                        Math.round((stubHubInfo.ticketInfo.maxListPrice + stubHubInfo.ticketInfo.minListPrice) / 2)}
-                                                    </Button>
-                                                </td>
-                                                <td>
-                                                    <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} variant="danger">
-                                                        ${Math.round(stubHubInfo.ticketInfo.maxListPrice)}
-                                                    </Button>
-                                                </td>
-                                            </>
-                                        )}
+                                        {
+                                            stubHubInfo[0] === "noStubHubUser" ? 
+                                            (
+                                                <td> Please log into StubHub to find ticket information on this event</td>
+                                            ) :
+                                            (!stubHubInfo.id ? (
+                                                <td> No tickets currently available from this vendor.</td>
+                                            ) : (
+                                                <>
+                                                    <td>
+                                                        <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} variant="success">${Math.round(stubHubInfo.ticketInfo.minListPrice)}</Button>
+                                                    </td>
+                                                    <td>
+                                                        <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} name="averagePrice" variant="primary">${
+                                                            Math.round((stubHubInfo.ticketInfo.maxListPrice + stubHubInfo.ticketInfo.minListPrice) / 2)}
+                                                        </Button>
+                                                    </td>
+                                                    <td>
+                                                        <Button href={`https://www.stubhub.com//${stubHubInfo.webURI}`} variant="danger">
+                                                            ${Math.round(stubHubInfo.ticketInfo.maxListPrice)}
+                                                        </Button>
+                                                    </td>
+                                                </>
+                                            ))
+                                        }
                                     </tr>
                                     <tr>
                                         <td>ticketmaster</td>
@@ -200,7 +223,7 @@ export default function Prices(props) {
                             </Table>
                         </tbody>
                     </Table>
-                </>
+                </div>
             }
 
             <div className="spacer"></div>

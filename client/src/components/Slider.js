@@ -28,22 +28,49 @@ export default function Slider(props) {
             <Swiper slidesPerView={1} spaceBetween={5} slidesPerGroup={1} loop={true} loopFillGroupWithBlank={true} 
             navigation={true}
             breakpoints={{
+                "360": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 0,
+                    "slidesPerGroup:":1
+                  },
+                  "415": {
+                    "slidesPerView": 2,
+                    "spaceBetween": 8,
+                    "slidesPerGroup:":2
+                  },
                 "640": {
                   "slidesPerView": 2,
-                  "spaceBetween": 5,
+                  "spaceBetween": 8,
                   "slidesPerGroup:":2
                 },
-                "768": {
+                "720": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 10,
+                    "slidesPerGroup:":3
+  
+                  },
+                "920": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 10,
+                  "slidesPerGroup:":3
+
+                },
+                
+                "1050": {
                   "slidesPerView": 4,
                   "spaceBetween": 10,
                   "slidesPerGroup:":4
-
                 },
-                "1024": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 10,
-                  "slidesPerGroup:":5
-                }
+                "1200": {
+                    "slidesPerView": 5,
+                    "spaceBetween": 10,
+                    "slidesPerGroup:":5
+                  },
+                "1400": {
+                    "slidesPerView": 5,
+                    "spaceBetween": 10,
+                    "slidesPerGroup:": 5
+                  }
               }}
             className="mySwiper">
                 {

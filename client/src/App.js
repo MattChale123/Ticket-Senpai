@@ -17,11 +17,30 @@ import Copyright from './components/Copyright';
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Switch>
-        <Route path='/' exact>
-          <Home/>
-        </Route>
+        <Navigation />
+        <Switch>
+          <Route path='/' exact>
+            <Home/>
+          </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path = "/events/:type">
+            <Events/>
+          </Route>
+          <Route path = "/search/city/:param">
+            <SearchCityResults />
+          </Route>
+          <Route path = "/search/performer/:param">
+            <SearchPerformerResults />
+          </Route>
+          <Route path = "/prices/:name">
+            <Prices />
+          </Route>
+          <Route path='/directions'>
+            <GoogleMaps />
+          </Route>
+        </Switch>
         <Route path="/register">
           <Register />
         </Route>
@@ -31,26 +50,7 @@ function App() {
         <Route path="/login/stubhub">
           <StubHubLogin />
         </Route>
-        <Route path="/profile">
-          <Profile />
-        </Route>
-        <Route path = "/events/:type">
-          <Events/>
-        </Route>
-        <Route path = "/search/city/:param">
-          <SearchCityResults />
-        </Route>
-        <Route path = "/search/performer/:param">
-          <SearchPerformerResults />
-        </Route>
-        <Route path = "/prices/:name">
-          <Prices />
-        </Route>
-        <Route path='/directions'>
-          <GoogleMaps />
-        </Route>
-      </Switch>
-      <Copyright />
+        <Copyright />
     </div>
   );
 }

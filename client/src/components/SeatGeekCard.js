@@ -7,7 +7,7 @@ export default function SeatGeekCard(props) {
     const noTicketStr = "No tickets currently available from this Vendor"
 
     return (
-        <div className="mt-3">
+        <div className="mt-3 pricesCard" >
             <Card style={{ width: '20rem' }} className="card-background">
                 <a href={url}><Card.Img variant="top" src={`${performers[0].image}`} /></a>
                 <Card.Body className="card-background">

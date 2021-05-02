@@ -35,7 +35,7 @@ export default function Login() {
               setError(data.error)
             } else {
               dispatch(setUser(data));
-              history.push('/');
+              history.push('/login/stubhub');
             }
           });
       };
@@ -61,7 +61,7 @@ export default function Login() {
         opacity: '.85',
         border: '2px solid black',
         width: '35%',
-        padding: '10px'
+        padding: '10px',
     }
     return (
       <div style={{ 
@@ -77,6 +77,7 @@ export default function Login() {
                 <h1 style={{textAlign: 'center', color: 'black'}} className="login-font">Login</h1>
                 <Form.Group controlId="formBasicEmail">
                   <Form.Label className="login-font">Enter username</Form.Label>
+
                   <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
                   <Form.Text className="text-muted">
                   </Form.Text>
@@ -91,6 +92,7 @@ export default function Login() {
               </div>
               <br />
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'}>here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
               </Form>
             </div>
       </div>

@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useDispatch } from "react-redux";
 import { setStubHub } from "../redux/actions";
-import { saveState } from '../redux/store';
+import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import background from '../components/senpailogopurple.svg';
+import { Link } from 'react-router-dom';
 
 export default function StubHubLogin() {
     const [form, setForm] = useState({
@@ -40,15 +43,48 @@ export default function StubHubLogin() {
           [e.target.name]: e.target.value,
         });
       };
+      const styling = {
+        backgroundColor: 'rgba(255, 255, 255, .15)',
+        backdropFilter: 'blur(5px)',
+        color: 'black',
+        flexDirection: 'column',
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        textAlign: 'left',
+        opacity: '.85',
+        border: '2px solid black',
+        width: '35%',
+        padding: '10px',
+    }
     
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <input placeholder="username" onChange={handleChange} value={form.username} name='username'></input><br />
-                <input type='password' placeholder="password" onChange={handleChange} value={form.password} name='password'></input><br />
-                <button type="submit">Login</button>
-            </form>
+        <div style={{ 
+          backgroundImage: `url(${background})`,
+          backgroundRepeat: 'noRepeat',
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center',
+          backgroundSize: '90% 100%',
+          height: '1100px'
+         }}><br />
+          <div style={styling}>
+            <h1 style={{textAlign: 'center', color: 'black'}}>Stubhub Login</h1>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label style={{color: 'black'}}>Username</Form.Label>
+                <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label style={{color: 'black'}}>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
+              </Form.Group>
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <Button variant="primary" type="submit">Login</Button>
+              </div>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>Already logged into StubHub, click <Link to={'/login'} style={{color: 'white'}}>here</Link></p>
+            </Form>
+          </div>
         </div>
     )
 }
