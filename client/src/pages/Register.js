@@ -60,6 +60,7 @@ export default function Register() {
         border: '2px solid black',
         width: '35%',
         padding: '10px',
+        minWidth: '325px'
     }
       
     return (

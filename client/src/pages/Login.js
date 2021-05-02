@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/actions";
-import { Form } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import background from '../components/senpailogopurple.svg'
 import { Link } from 'react-router-dom';
@@ -61,6 +61,7 @@ export default function Login() {
         border: '2px solid black',
         width: '35%',
         padding: '10px',
+        minWidth: '325px'
     }
     return (
       <div style={{ 
@@ -72,28 +73,33 @@ export default function Login() {
         height: '1100px'
        }}><br />
             <div style={styling}>
-              <Form onSubmit={handleSubmit} style={{fontFamily: 'Roboto'}}>
-                <h1 style={{textAlign: 'center', color: 'black'}}>Login</h1>
-                <Form.Group controlId="formBasicEmail">
-                  <Form.Label style={{color: 'black'}}>Enter username</Form.Label>
-                  <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
-                  <Form.Text className="text-muted">
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label style={{color: 'black'}}>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
-                  </Form.Group>
-                {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
-              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <Button variant="primary" type="submit">Submit</Button>
-              </div>
-              <br />
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
-              </Form>
+              <Row>
+                <Col> 
+                  <Form onSubmit={handleSubmit} style={{fontFamily: 'Roboto'}}>
+                    <h1 style={{textAlign: 'center', color: 'black'}}>Login</h1>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label style={{color: 'black'}}>Enter username</Form.Label>
+                      <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
+                      <Form.Text className="text-muted">
+                      </Form.Text>
+                    </Form.Group>
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label style={{color: 'black'}}>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
+                      </Form.Group>
+                    {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
+                  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                    <Button variant="primary" type="submit">Submit</Button>
+                  </div>
+                  <br />
+                  <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
+                  <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
+                  </Form>
+                </Col>
+              </Row>
             </div>
       </div>
     )
   }
 
+  // style={{sm=12}}
