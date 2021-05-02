@@ -34,7 +34,7 @@ export default function Login() {
               setError(data.error)
             } else {
               dispatch(setUser(data));
-              history.push('/');
+              history.push('/login/stubhub');
             }
           });
       };
@@ -60,7 +60,7 @@ export default function Login() {
         opacity: '.85',
         border: '2px solid black',
         width: '35%',
-        padding: '10px'
+        padding: '10px',
     }
     return (
       <div style={{ 
@@ -72,16 +72,16 @@ export default function Login() {
         height: '1100px'
        }}><br />
             <div style={styling}>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit} style={{fontFamily: 'Roboto'}}>
                 <h1 style={{textAlign: 'center', color: 'black'}}>Login</h1>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Enter username</Form.Label>
+                  <Form.Label style={{color: 'black'}}>Enter username</Form.Label>
                   <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
                   <Form.Text className="text-muted">
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label style={{color: 'black'}}>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
                   </Form.Group>
                 {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
@@ -89,7 +89,8 @@ export default function Login() {
                 <Button variant="primary" type="submit">Submit</Button>
               </div>
               <br />
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>If you haven't registered, click <Link to={'/register'}>here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
               </Form>
             </div>
       </div>
