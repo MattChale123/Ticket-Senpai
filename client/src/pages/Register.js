@@ -68,7 +68,7 @@ export default function Register() {
             backgroundRepeat: 'noRepeat',
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
-            backgroundSize: '100% auto',
+            backgroundSize: '90% 100%',
             height: '1100px'
            }}>
                <br />
@@ -79,7 +79,7 @@ export default function Register() {
                         <Form.Group>
                             <Form.Row className="align-items-center">
                                 <Col xs="auto">
-                                    <Form.Label htmlFor="inlineFormInputGroup">
+                                    <Form.Label htmlFor="inlineFormInputGroup" style={{color: 'black'}}>
                                         Username
                                     </Form.Label>
                                     <InputGroup className="mb-2">
@@ -92,22 +92,22 @@ export default function Register() {
                             </Form.Row>
                         </Form.Group>
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label style={{color: 'black'}}>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" onChange={handleChange} value={form.email} name='email' required/><br />
                             <Form.Text className="text-muted" style={{textAlign: 'left', color: 'white'}}>
                             </Form.Text>
                         </Form.Group>
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
+                            <Form.Label style={{color: 'black'}}>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' required/>
                         </Form.Group><br />
                         {(error === 'Username already in use. Pick another') && <p style={errorStyling}>{error}</p>}
                         <Form.Group controlId="formBasicCity" required>
-                                <Form.Label>City</Form.Label>
+                                <Form.Label style={{color: 'black'}}>City</Form.Label>
                                 <Form.Control type="text" placeholder="City" onChange={handleChange} value={form.city} name='city' required/>
                         </Form.Group><br />
                         <Form.Group controlId="exampleForm.ControlSelect1" >
-                            <Form.Label>Select a State</Form.Label>
+                            <Form.Label style={{color: 'black'}}>Select a State</Form.Label>
                             <Form.Control as="select" defaultValue='Select a State' onChange={handleChange} value={form.state} name='state' required>
                             <option>Select a State</option>
                             <option>AL</option>

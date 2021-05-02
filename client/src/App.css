@@ -1,6 +1,6 @@
 .App {
   background-color: #343A40 !important;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif !important;
   color: #FFC0CB;
 }
 
