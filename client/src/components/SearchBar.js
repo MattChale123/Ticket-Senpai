@@ -20,6 +20,7 @@ export default function SearchBar() {
              }
         })
         setSearchParam("")
+        setSelectState('Select State')
     };
     const handleSubmitPerformer = (e) => {
         e.preventDefault()
