@@ -20,7 +20,7 @@ export default function SliderCard(props) {
                 <img src={props.event.performers[0].image} alt="concerts"></img>
             <div className="card-content">
                 <div className="card-content-title">{props.event.title}</div>
-                <Button  className="card-content-details" variant="outline-primary" onClick={handleClick}>Compare</Button>
+                <Button  className="neon-button-pink card-content-details" variant="outline-primary" onClick={handleClick}>Compare</Button>
                 <div className="card-content-footer">
                     <div>{props.event.venue.city}, {props.event.venue.state}</div>
                     <div>{moment.parseZone(props.event.datetime_local).format('MM/D/YYYY')}</div>

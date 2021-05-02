@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
 import { DropdownButton, Dropdown, Form, InputGroup, Button, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import React, { useState } from 'react';
+import '.././App.css';
 
 export default function SearchBar() {
     const [searchDefault, setSearchDefault] = useState(true)
@@ -154,7 +155,7 @@ export default function SearchBar() {
                                     <Dropdown.Item eventKey="WY">Wyoming</Dropdown.Item>
                                 </DropdownButton>
                                 <InputGroup.Append>
-                                    <Button type="submit" variant="outline-info">
+                                    <Button type="submit" variant="outline-info" className="neon-button-pink">
                                         Search
                                         </Button>
                                 </InputGroup.Append>
@@ -177,9 +178,9 @@ export default function SearchBar() {
                                     value={searchPCParam}
                                 />
                                 <InputGroup.Append>
-                                    <Button type="submit" variant="outline-info">
+                                    <Button type="submit" variant="outline-info" className="neon-button-pink">
                                         Search
-                                        </Button>
+                                    </Button>
                                 </InputGroup.Append>
                             </InputGroup>
                         </Form>

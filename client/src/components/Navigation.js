@@ -36,11 +36,11 @@ const Navigation = () => {
 
                     {user ? (
                         <div className="text-right">
-                            <Button color='inherit' onClick={logout}>Logout</Button>
+                            <Button className="neon-button-pink" color='inherit' onClick={logout}>Logout</Button>
                         </div>
                     ) : (
                         <div>
-                            <Button color='inherit' as={Link} to='/login'>Login</Button>
+                            <Button className="neon-button-pink" color='inherit' as={Link} to='/login'>Login</Button>
                         </div>
                     )
                 }

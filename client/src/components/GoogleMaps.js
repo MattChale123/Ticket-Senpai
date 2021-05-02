@@ -70,7 +70,7 @@ export default function GoogleMaps(props) {
                 <label className="maps-label">Venue address:</label>
                 <Form.Control type="text" placeholder="Destination" onChange={handleChange} value={form.destination} name='destination'/>
                     <br />
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button className="neon-button-pink" variant="primary" type="submit">Submit</Button>
             </Form>
             {results.map((result) => {
                 return (
