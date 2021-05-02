@@ -6,6 +6,7 @@ import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import background from '../components/senpailogopurple.svg'
 import { Link } from 'react-router-dom';
+import '.././App.css';
 
 export default function Login() {
     const [ error, setError ] = useState('')
@@ -73,23 +74,23 @@ export default function Login() {
        }}><br />
             <div style={styling}>
               <Form onSubmit={handleSubmit}>
-                <h1 style={{textAlign: 'center', color: 'black'}}>Login</h1>
+                <h1 style={{textAlign: 'center', color: 'black'}} className="login-font">Login</h1>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Enter username</Form.Label>
+                  <Form.Label className="login-font">Enter username</Form.Label>
                   <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
                   <Form.Text className="text-muted">
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="login-font">Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
                   </Form.Group>
                 {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
               <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button className="neon-button-pink" variant="primary" type="submit">Submit</Button>
               </div>
               <br />
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>If you haven't registered, click <Link to={'/register'}>here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'}>here</Link></p>
               </Form>
             </div>
       </div>

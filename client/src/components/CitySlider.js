@@ -50,7 +50,7 @@ export default function CitySlider(props) {
                 <NoResultsFound />
             ):(
                 <>
-                <h1 style ={{textAlign:"center"}} >Events in {city}</h1>
+                <h1 className="home-city-header" style ={{textAlign:"center"}} >Events in {city}</h1>
             
                 <Slider events={events.music} title = "Concerts"/>
                 <Slider events={events.sports} title= "Sports" />
