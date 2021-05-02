@@ -4,7 +4,7 @@ import moment from 'moment'
 
 export default function TicketMasterCard(props) {
     return (
-        <div className="mt-3">
+        <div className="mt-3 pricesCard">
             {
                 !props.event?.id ? (
                     <Card style={{ width: '20rem' }} className="card-background">

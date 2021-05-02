@@ -11,6 +11,7 @@ export default function CitySlider(props) {
     })
 
     const city = props.city.charAt(0).toUpperCase() + props.city.slice(1)
+    console.log(city)
 
     useEffect(() => {
         fetchSG()
@@ -51,7 +52,7 @@ export default function CitySlider(props) {
             ):(
                 <>
                 <h1 style ={{textAlign:"center"}} >Events in {city}</h1>
-            
+                
                 <Slider events={events.music} title = "Concerts"/>
                 <Slider events={events.sports} title= "Sports" />
                 <Slider events={events.comedy} title = "Comedy"/>
