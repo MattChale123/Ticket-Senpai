@@ -6,10 +6,10 @@ import '.././App.css';
 
 export default function StubHubCard(props) {
     return (
-        <div>
+        <div className="pricesCard"> 
             {
                 !props.event.id ? (
-                    <div className="mt-3">
+                    <div className="mt-3 pricesCard">
                     <Card style={{ width: '20rem' }} className="stubhub-card-background">
                         <Card.Img variant="top" style={{height:'238px', width:'318px'}} src={StubHubLogo}  />
                         <Card.Body className="card-background">
@@ -27,7 +27,7 @@ export default function StubHubCard(props) {
                     </div>
                 ) :
                 (
-                <div className="mt-3">
+                <div className="mt-3 pricesCard">
                 <Card style={{ width: '20rem' }} className="stubhub-card-background">
                       <a href={`https://www.stubhub.com//${props.event.webURI}`}>
                            <Card.Img src={StubHubLogo} alt='StubHub logo' style={{height: '238px', width: '318px'}} />

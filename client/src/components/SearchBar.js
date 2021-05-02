@@ -14,17 +14,18 @@ export default function SearchBar() {
     const handleSubmitCity = (e) => {
         e.preventDefault()
         history.push({
-            pathname: `/search/city/${searchParam}}`,
+            pathname: `/search/city/${searchParam}`,
             state: { 
                 SelectCityState: selectState    
              }
         })
         setSearchParam("")
+        console.log(selectState)
     };
     const handleSubmitPerformer = (e) => {
         e.preventDefault()
         history.push({
-            pathname: `/search/performer/${searchParam}}`,
+            pathname: `/search/performer/${searchParam}`,
             state: { 
                 PCParam: searchPCParam, 
              }
