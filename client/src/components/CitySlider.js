@@ -9,12 +9,16 @@ export default function CitySlider(props) {
         comedy: [],
         theater: []
     })
+    
+    const [searchTitle, setSearchTitle] = useState("")
+    const [searchError, setSearchError] = useState("")
+
 
     const city = props.city.charAt(0).toUpperCase() + props.city.slice(1)
-    console.log(city)
 
     useEffect(() => {
         fetchSG()
+        console.log(props.state)
     }, [props.city])
 
     const fetchSG = () => {
@@ -25,10 +29,22 @@ export default function CitySlider(props) {
             "theater"//classical
         ]
         const promiseEvents = types.map(type => {
-            return fetch(`https://api.seatgeek.com/2/events?page=1&per_page=20&venue.city=${props.city}&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
+            return fetch(`https://api.seatgeek.com/2/events?page=1&per_page=20&venue.city=${props.city}&venue.state=${props.state}&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
                 .then(res => res.json())
                 .then(data => {
-                    return data.events
+                    if (data.events.length ===0){
+                        return fetch(`https://api.seatgeek.com/2/events?page=1&per_page=20&venue.state=${props.state}&taxonomies.name=${type}&sort=score.desc&client_id=MjE3NTkxNTd8MTYxODk0NzQ1NS42NzczMDgz`)
+                        .then(res => res.json())
+                        .then(data => {
+                            setSearchTitle(props.state)
+                            setSearchError(`No events found in ${props.city}, ${props.state} defaulted to events in ${props.state}`)
+                            return data.events
+                        })
+                    }
+                    else{
+                        setSearchTitle(props.city)
+                        return data.events
+                    }
                 })
         })
 
@@ -52,6 +68,7 @@ export default function CitySlider(props) {
             ):(
                 <>
                 <h1 style ={{textAlign:"center"}} >Events in {city}</h1>
+                <div style={{color:"red", textAlign:"center"}}>{searchError}</div>
                 
                 <Slider events={events.music} title = "Concerts"/>
                 <Slider events={events.sports} title= "Sports" />
