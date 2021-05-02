@@ -2,7 +2,7 @@ import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import TicketMasterCard from '../components/TicketMasterCard';
 import SeatGeekCard from '../components/SeatGeekCard';
 import StubHubCard from '../components/StubHubCard';
-import React, { useEffect, useState, getState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GoogleMaps from '../components/GoogleMaps';
 import { useMediaQuery } from 'react-responsive';
 import { useLocation } from 'react-router-dom';
