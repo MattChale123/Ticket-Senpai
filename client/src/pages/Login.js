@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/actions";
-import { Form } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import background from '../components/senpailogopurple.svg'
 import { Link } from 'react-router-dom';
@@ -62,6 +62,7 @@ export default function Login() {
         border: '2px solid black',
         width: '35%',
         padding: '10px',
+        minWidth: '325px'
     }
     return (
       <div style={{ 
@@ -73,6 +74,7 @@ export default function Login() {
         height: '1100px'
        }}><br />
             <div style={styling}>
+
               <Form onSubmit={handleSubmit}>
                 <h1 style={{textAlign: 'center', color: 'black'}} className="login-font">Login</h1>
                 <Form.Group controlId="formBasicEmail">
@@ -99,3 +101,4 @@ export default function Login() {
     )
   }
 
+  // style={{sm=12}}

@@ -56,6 +56,7 @@ export default function StubHubLogin() {
         border: '2px solid black',
         width: '35%',
         padding: '10px',
+        minWidth: '325px'
     }
     
     return (
@@ -68,7 +69,7 @@ export default function StubHubLogin() {
           height: '1100px'
          }}><br />
           <div style={styling}>
-            <h1 style={{textAlign: 'center', color: 'black'}}>Stubhub Login</h1>
+            <h1 style={{textAlign: 'center', color: 'black'}}>StubHub Login</h1>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label style={{color: 'black'}}>Username</Form.Label>
@@ -83,6 +84,7 @@ export default function StubHubLogin() {
                 <Button variant="primary" type="submit">Login</Button>
               </div>
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>Already logged into StubHub, click <Link to={'/login'} style={{color: 'white'}}>here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>Don't want to log into StubHub, click <Link to={'/'} style={{color: 'white'}}>here</Link></p>
             </Form>
           </div>
         </div>
