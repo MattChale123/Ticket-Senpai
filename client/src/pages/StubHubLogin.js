@@ -58,7 +58,7 @@ export default function StubHubLogin() {
         padding: '10px',
         minWidth: '325px'
     }
-    
+
     return (
         <div style={{ 
           backgroundImage: `url(${background})`,
