@@ -76,7 +76,7 @@ export default function SearchPerformerResults() {
                         {(results.length >= 1) ? (
                             <Jumbotron className="performerJumbotron">
                                 <div className="performerBio">
-                                    <div className="performerTitle">
+                                    <div className="performerTitle sliderHeaders">
                                         {results.length === 1 ?
                                             (results[0].performers[0].name)
                                             :
@@ -120,7 +120,7 @@ export default function SearchPerformerResults() {
                                                             No upcoming Events
                                             </span> :
                                                         PCParam === "" ? (
-                                                            <span>
+                                                            <span className="sliderHeaders">
                                                                 Upcoming Events: {
                                                                     results.length < 10 ?
                                                                         (results.length)
@@ -163,11 +163,11 @@ export default function SearchPerformerResults() {
                                     <div></div>
                                 ) : (
                                     <div>
-                                        <Button className="previousPageBtn" onClick={previousPageButton}>Prev. Page</Button>
+                                        <Button className="previousPageBtn neon-button-purple" onClick={previousPageButton}>Prev. Page</Button>
                                     </div>
                                 )}
                             </Col>
-                            <Col className="performerResultsPreviousButton">
+                            <Col className="performerResultsPreviousButton ">
                                 {
                                     results.length >= 10 ?
                                         (
@@ -186,7 +186,7 @@ export default function SearchPerformerResults() {
                                         (metaData.page === Math.round(metaData.total / metaData.per_page)) ? (
                                             <div></div>
                                         ) : (
-                                            <Button className="nextPageBtn" onClick={nextPageButton}>Next Page</Button>
+                                            <Button className="nextPageBtn neon-button-purple" onClick={nextPageButton}>Next Page</Button>
                                         )
 
                                     ) :
