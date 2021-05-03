@@ -93,7 +93,7 @@ export default function Login() {
                 <Button className="neon-button-pink" variant="primary" type="submit">Submit</Button>
               </div>
               <br />
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'}>here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}> here</Link></p>
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
               </Form>
             </div>
