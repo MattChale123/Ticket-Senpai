@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -40,7 +40,6 @@ function App() {
           <Route path='/directions'>
             <GoogleMaps />
           </Route>
-        </Switch>
         <Route path="/register">
           <Register />
         </Route>
@@ -50,6 +49,10 @@ function App() {
         <Route path="/login/stubhub">
           <StubHubLogin />
         </Route>
+        <Route>
+          <Redirect to={'/'} />
+        </Route>
+        </Switch>
         <Copyright />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/actions";
-import { Col, Form, Row } from 'react-bootstrap';
+import { Form} from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import background from '../components/senpailogopurple.svg'
 import { Link } from 'react-router-dom';
@@ -78,14 +78,14 @@ export default function Login() {
               <Form onSubmit={handleSubmit}>
                 <h1 style={{textAlign: 'center', color: 'black'}} className="login-font">Login</h1>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label className="login-font">Enter username</Form.Label>
+                  <Form.Label className="login-font" style={{color: 'black'}}>Enter username</Form.Label>
 
                   <Form.Control type="text" placeholder="Enter username" onChange={handleChange} value={form.username} name='username' />
                   <Form.Text className="text-muted">
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label className="login-font">Password</Form.Label>
+                    <Form.Label className="login-font" style={{color: 'black'}}>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
                   </Form.Group>
                 {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
@@ -93,12 +93,11 @@ export default function Login() {
                 <Button className="neon-button-pink" variant="primary" type="submit">Submit</Button>
               </div>
               <br />
-              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}> here</Link></p>
+              <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="login-font">If you haven't registered, click <Link to={'/register'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>If you need to login to StubHub, click <Link to={'/login/stubhub'} style={{color: 'white'}}>&nbsp; here</Link>.</p>
+              {(error === 'password is incorrect' || 'No username with that username. Please register an account.') && <p style={errorStyling}>{error}</p>}
               </Form>
             </div>
       </div>
     )
   }
-
-  // style={{sm=12}}
