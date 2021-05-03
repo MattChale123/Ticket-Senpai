@@ -24,7 +24,7 @@ export default function Slider(props) {
         <div className="slider-border">
         <div className= "mt-3">
             <hr className="line"/>
-            <h2 className="separator-title twice">{props.title}</h2>
+            <h2 className="separator-title sliderHeaders ">{props.title}</h2>
             <Swiper slidesPerView={1} spaceBetween={5} slidesPerGroup={1} loop={true} loopFillGroupWithBlank={true} 
             navigation={true}
             breakpoints={{

@@ -80,8 +80,8 @@ export default function StubHubLogin() {
                 <Form.Label style={{color: 'black'}}>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" onChange={handleChange} value={form.password} name='password' />
               </Form.Group>
-              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                <Button variant="primary" type="submit">Login</Button>
+              <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} className="mb-3">
+                <Button variant="primary" className="neon-button-pink" type="submit">Login</Button>
               </div>
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>Already logged into StubHub, click <Link to={'/login'} style={{color: 'white'}}>here</Link></p>
               <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'black'}}>Don't want to log into StubHub, click <Link to={'/'} style={{color: 'white'}}>here</Link></p>

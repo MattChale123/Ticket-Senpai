@@ -12,6 +12,11 @@ import moment from 'moment';
 import '.././App.css';
 import { useSelector } from 'react-redux';
 import NotLoggedInToStubHubCard from '../components/NotLoggedInToStubHubCard';
+import stubHubLogo from '../img/stub-hub-logo.png'
+import seatGeekLogo from '../img/seatgeek.png'
+import ticketMasterLogo from '../img/ticketmaster.svg'
+
+
 
 export default function Prices(props) {
     const location = useLocation()
@@ -93,14 +98,15 @@ export default function Prices(props) {
         margin: '10px auto',
         borderRadius: '15px',
         width: '50%',
+        minWidth: '325px',
         alignItems: 'center'
     }
 
     return (
         <Container style={{ textAlign: "center" }}>
             <Row >
-                <Col className="mt-3">
-                    <h1 className="prices-header"> Prices for {event.title} in {event.venue.city}, {event.venue.state}:</h1>
+                <Col className="mt-3 mb-5">
+                    <h1 className="prices-header contentH1"> Prices for {event.title.replace(/ *\([^)]*\) */g, "")} in {event.venue.city}, {event.venue.state}</h1>
                 </Col>
             </Row>
             {isDesktopOrLaptop &&
@@ -108,11 +114,13 @@ export default function Prices(props) {
                     <Row>
                         <Col sm={4}>
                             <div className="pricesCard">
+                            <img src={seatGeekLogo} alt="" className="seatGeekLogo"></img>
                             <SeatGeekCard event={event} />
                             </div>
                         </Col>
                         <Col sm={4}>
                             <div className="pricesCard">
+                        <img src={stubHubLogo} className="stubHubLogo" alt=""></img>
                             {
                                 stubHubInfo[0] === "noStubHubUser" ? <NotLoggedInToStubHubCard /> :
                                 <StubHubCard event={stubHubInfo}/>
@@ -121,6 +129,7 @@ export default function Prices(props) {
                         </Col>
                         <Col sm={4}>
                             <div className="pricesCard">
+                        <img src={ticketMasterLogo} className="ticketmasterLogo" alt=""></img>
                             <TicketMasterCard event={TicketMaster}  />
                             </div>
                         </Col>

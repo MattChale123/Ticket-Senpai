@@ -164,9 +164,11 @@ export default function Register() {
                             </Form.Control>
                         </Form.Group>
                         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                            <Button variant="primary" type="submit">Submit</Button>
+                            <Button variant="primary" className="neon-button-pink" type="submit">Submit</Button>
                         </div><br />
-                        <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>Already registered? Click <Link to={'/login'} style={{color: 'white'}}>here</Link></p>
+                        <p style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                            Already registered? Click <Link to={'/login'} style={{color: 'white'}}>&nbsp;
+                             here</Link></p>
                         <br />
                     </Form>
             </div>
